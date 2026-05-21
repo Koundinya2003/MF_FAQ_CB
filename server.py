@@ -71,17 +71,6 @@ def ask():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route("/refresh", methods=["POST"])
-def refresh():
-    try:
-        from scraper import scrape_all
-        from embedder import build_index
-        scrape_all()
-        build_index(force=True)
-        return jsonify({"status": "Index refreshed successfully"})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "ok", "message": "FundBot backend is running"})
