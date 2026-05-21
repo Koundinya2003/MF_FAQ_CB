@@ -32,7 +32,7 @@ Answer:"""
 
 app = Flask(__name__)
 CORS(app, resources={
-    "/ask": {
+    r"/ask": {
         "origins": [
             "https://mf-faq.netlify.app",
             "https://koundinya2003.github.io",
@@ -40,7 +40,7 @@ CORS(app, resources={
             "http://localhost:5500"
         ]
     },
-    "/health": {"origins": "*"}
+    r"/health": {"origins": "*"}
 })
 
 @app.route("/ask", methods=["POST"])
@@ -89,6 +89,3 @@ def health():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port, debug=False)
-
-if __name__ == "__main__":
-    app.run(port=5000, debug=True)
