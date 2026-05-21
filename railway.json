@@ -9,6 +9,6 @@
     "restartPolicyMaxRetries": 10
   },
   "env": {
-    "ANTHROPIC_API_KEY": ""
+    "OPENAI_API_KEY": ""
   }
 }
