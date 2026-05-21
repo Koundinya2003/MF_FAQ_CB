@@ -1,0 +1,228 @@
+{
+  "large_cap": {
+    "expense_ratio": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "exit_load": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "lump_sum_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "benchmark": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "riskometer": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_frequency": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    }
+  },
+  "flexi_cap": {
+    "expense_ratio": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "exit_load": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "lump_sum_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "benchmark": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "riskometer": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_frequency": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    }
+  },
+  "elss": {
+    "expense_ratio": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "exit_load": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "lump_sum_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "benchmark": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "riskometer": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_frequency": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "elss_lockin": {
+      "answer": "Mirae Asset ELSS Tax Saver Fund has a mandatory lock-in period of 3 years from the date of each investment instalment as mandated by SEBI for all ELSS funds.",
+      "source_url": "https://www.sebi.gov.in/legal/circulars",
+      "source_label": "sebi.gov.in",
+      "last_updated": "June 2025"
+    }
+  },
+  "midcap": {
+    "expense_ratio": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "exit_load": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "lump_sum_minimum": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "benchmark": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "riskometer": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    },
+    "sip_frequency": {
+      "answer": "[FILL IN]",
+      "source_url": "[FILL IN]",
+      "source_label": "[FILL IN]",
+      "last_updated": "June 2025"
+    }
+  },
+  "general": {
+    "statement_download": {
+      "answer": "You can download your Mirae Asset capital gains statement by visiting CAMS at camsonline.com or KFintech at kfintech.com. Log in, go to Statements, select Capital Gains, choose your financial year, and download the PDF.",
+      "source_url": "https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement",
+      "source_label": "camsonline.com",
+      "last_updated": "June 2025"
+    },
+    "elss_lockin": {
+      "answer": "All ELSS (Equity Linked Savings Scheme) funds have a mandatory lock-in period of 3 years from the date of each SIP instalment as per SEBI regulations. Redemption before 3 years is not permitted.",
+      "source_url": "https://www.sebi.gov.in/legal/circulars",
+      "source_label": "sebi.gov.in",
+      "last_updated": "June 2025"
+    },
+    "what_is_sip": {
+      "answer": "A SIP (Systematic Investment Plan) allows you to invest a fixed amount in a mutual fund at regular intervals — monthly, weekly, or quarterly. It helps build wealth gradually without needing a large lump sum upfront.",
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    "what_is_expense_ratio": {
+      "answer": "The expense ratio is the annual fee charged by a mutual fund to manage your investment. It is expressed as a percentage of your total investment. A lower expense ratio means more of your money stays invested.",
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    "what_is_exit_load": {
+      "answer": "Exit load is a fee charged when you redeem your mutual fund units before a specified period. It is meant to discourage early withdrawal. After the exit load period ends, redemption is free of charge.",
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    "what_is_nav": {
+      "answer": "NAV (Net Asset Value) is the per-unit price of a mutual fund scheme. It is calculated at the end of every business day. When you invest, units are allotted based on the applicable NAV.",
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    "what_is_elss": {
+      "answer": "ELSS (Equity Linked Savings Scheme) is a type of mutual fund that invests primarily in equities and qualifies for tax deduction under Section 80C of the Income Tax Act up to ₹1.5 lakh per year. It has a mandatory 3-year lock-in period.",
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    }
+  }
+}
