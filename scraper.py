@@ -13,8 +13,13 @@ FUND_URLS = [
 
 BLOCKLIST_PATTERNS = [
     "privacy policy", "terms of use", "copyright", "disclaimer",
-    "navigational", "menu", "footer", "header", "login", "register"
+    "navigational", "menu", "footer", "header", "login", "register",
+    "facebook", "twitter", "linkedin", "instagram", "whatsapp"
 ]
+
+def is_blocked(text):
+    lowered = text.lower()
+    return any(pattern in lowered for pattern in BLOCKLIST_PATTERNS)
 
 def scrape_page(url):
     headers = {
@@ -25,21 +30,23 @@ def scrape_page(url):
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
 
-        # Remove script and style elements
-        for script_or_style in soup(["script", "style"]):
-            script_or_style.decompose()
+        # Remove script, style, and footer elements
+        for element in soup(["script", "style", "footer", "nav"]):
+            element.decompose()
 
-        # Extract text
-        text = soup.get_text(separator=' ')
+        # Extract text from meaningful tags
+        meaningful_tags = soup.find_all(['p', 'h1', 'h2', 'h3', 'li', 'td', 'div'])
+        lines = []
+        for tag in meaningful_tags:
+            text = tag.get_text().strip()
+            if text and not is_blocked(text):
+                lines.append(text)
 
-        # Simple cleaning
-        lines = (line.strip() for line in text.splitlines())
-        chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-        text = '\n'.join(chunk for chunk in chunks if chunk)
+        cleaned_text = '\n'.join(lines)
 
         return {
             "url": url,
-            "content": text
+            "content": cleaned_text
         }
     except Exception as e:
         print(f"Error scraping {url}: {e}")

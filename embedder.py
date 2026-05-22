@@ -15,6 +15,7 @@ def chunk_text(text, chunk_size=500, overlap=100):
 def main():
     data_dir = "data"
     scraped_file = os.path.join(data_dir, "scraped_data.json")
+    topic_data_file = os.path.join(os.path.dirname(__file__), "Topic Detection Data.json")
 
     if not os.path.exists(scraped_file):
         print(f"Error: {scraped_file} not found.")
@@ -23,12 +24,10 @@ def main():
     with open(scraped_file, "r", encoding="utf-8") as f:
         scraped_data = json.load(f)
 
-    print("Loading embedding model...")
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-
     all_chunks = []
     all_metadata = []
 
+    # Process scraped data
     for entry in scraped_data:
         url = entry["url"]
         content = entry["content"]
@@ -36,6 +35,22 @@ def main():
         for chunk in chunks:
             all_chunks.append(chunk)
             all_metadata.append({"url": url, "content": chunk})
+
+    # Process Expert Data from JSON
+    if os.path.exists(topic_data_file):
+        with open(topic_data_file, "r", encoding="utf-8") as f:
+            topic_data = json.load(f)
+            for category in topic_data.values():
+                for entry in category.values():
+                    if entry.get("answer") and entry["answer"] != "[FILL IN]":
+                        all_chunks.append(entry["answer"])
+                        all_metadata.append({
+                            "url": entry.get("source_url", "https://www.miraeassetmf.co.in"),
+                            "content": entry["answer"]
+                        })
+
+    print("Loading embedding model...")
+    model = SentenceTransformer('all-MiniLM-L6-v2')
 
     print(f"Generating embeddings for {len(all_chunks)} chunks...")
     embeddings = model.encode(all_chunks)
