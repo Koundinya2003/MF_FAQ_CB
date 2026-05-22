@@ -3,27 +3,24 @@ import logging
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from rag import get_rag_answer
+from topic_detection import get_answer as get_topic_answer
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("flask.log")
+        logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app) # Allow all for local development, can restrict later if needed
+CORS(app)
 
 @app.route("/ask", methods=["POST"])
 def ask():
-    logger.info(f"Received request: {request.headers}")
     data = request.get_json()
-    logger.info(f"Request body: {data}")
-
     question = data.get("question", "").strip()
     if not question:
         return jsonify({"error": "Question is required"}), 400
@@ -44,6 +41,16 @@ def ask():
         })
     
     try:
+        # Hybrid Approach: Check topic detection first for high-confidence expert answers
+        topic_answer, topic_source = get_topic_answer(question)
+
+        # If topic detection found a specific answer (not a generic fallback)
+        if "I could not find data" not in topic_answer and "This data has not been entered yet" not in topic_answer:
+            logger.info(f"Using topic detection answer for: {question}")
+            return jsonify({"answer": topic_answer, "source": topic_source})
+
+        # Fallback to RAG
+        logger.info(f"Falling back to RAG for: {question}")
         answer, source_url = get_rag_answer(question)
         return jsonify({"answer": answer, "source": source_url})
     except Exception as e:
@@ -56,5 +63,4 @@ def health():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    logger.info(f"Starting server on port {port}")
     app.run(host="0.0.0.0", port=port, debug=False)
