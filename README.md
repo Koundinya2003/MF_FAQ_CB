@@ -56,9 +56,12 @@ Open `http://localhost:5500` — `config.js` points API calls to `http://localho
 
 ## Production URLs
 
-- Frontend: https://mf-faq.netlify.app
-- Backend: https://mffaqcb-production.up.railway.app
-- Frontend API path in prod: `/api/ask` (proxied to Railway)
+**Primary (UI + API on Railway):** https://mffaqcb-production.up.railway.app
+
+After pushing to GitHub, trigger a **Redeploy** in the [Railway dashboard](https://railway.app) (Settings → Redeploy) if auto-deploy is not linked.
+
+- Legacy Netlify frontend: https://mf-faq.netlify.app (may be unavailable if Netlify usage limit is exceeded)
+- API only: https://mffaqcb-production.up.railway.app/ask
 
 See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for deploy commands and verification checklist.
 
