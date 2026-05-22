@@ -86,6 +86,15 @@ let isThinking = false;
 const API_BASE = (window.API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
 let slowLoadTimeout = null;
 
+/** Local canned answers when API is down or not yet redeployed */
+function findLocalFallback(userQuestion) {
+  const q = userQuestion.toLowerCase();
+  for (const item of responses) {
+    if (item.keys.some((k) => q.includes(k))) return item;
+  }
+  return null;
+}
+
 // Sidebar suggestions container (expecting id sidebar-suggestions)
 let sidebarSuggestions = document.getElementById('sidebar-suggestions');
 if (!sidebarSuggestions) {
@@ -273,7 +282,12 @@ function sendMessage() {
       clearTimeout(slowLoadTimeout);
       removeThinkingBubble();
       if (data.error) {
-          showMessage("Error: " + data.error, data.source || "");
+          const local = findLocalFallback(userQuestion);
+          if (local) {
+            showMessage(local.answer, local.source);
+          } else {
+            showMessage("Error: " + data.error, data.source || "");
+          }
       } else {
           showMessage(data.answer, data.source);
       }
@@ -281,7 +295,12 @@ function sendMessage() {
   .catch((err) => {
       clearTimeout(slowLoadTimeout);
       removeThinkingBubble();
-      appendBackendErrorMessage(err && err.message ? err.message : null);
+      const local = findLocalFallback(userQuestion);
+      if (local) {
+        showMessage(local.answer, local.source);
+      } else {
+        appendBackendErrorMessage(err && err.message ? err.message : null);
+      }
   })
   .finally(() => {
     if (sendBtn) sendBtn.disabled = false;
