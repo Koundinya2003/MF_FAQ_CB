@@ -2,3 +2,8 @@ flask
 flask-cors
 openai
 gunicorn
+sentence-transformers
+faiss-cpu
+beautifulsoup4
+requests
+tiktoken

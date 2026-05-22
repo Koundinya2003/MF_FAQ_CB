@@ -82,7 +82,9 @@ const categories = {
 // Screen 3 State
 let hasWelcomeShown = false;
 let isThinking = false;
-const BACKEND_URL = "https://mffaqcb-production.up.railway.app";
+const BACKEND_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+  ? "http://localhost:5000"
+  : "https://mffaqcb-production.up.railway.app";
 let slowLoadTimeout = null;
 
 // Sidebar suggestions container (expecting id sidebar-suggestions)
