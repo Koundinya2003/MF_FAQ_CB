@@ -82,7 +82,8 @@ const categories = {
 // Screen 3 State
 let hasWelcomeShown = false;
 let isThinking = false;
-const BACKEND_URL = "https://mffaqcb-production.up.railway.app";
+// Set by config.js before this script loads (see index.html)
+const API_BASE = (window.API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
 let slowLoadTimeout = null;
 
 // Sidebar suggestions container (expecting id sidebar-suggestions)
@@ -218,11 +219,15 @@ function appendRefusal(answerText, sourceUrl) {
   row.appendChild(avatar); row.appendChild(bubble); chatWindow.appendChild(row); scrollToBottom();
 }
 
-function appendBackendErrorMessage() {
+function appendBackendErrorMessage(detail) {
   const row = document.createElement('div'); row.className='msg-row msg-bot';
   const avatar = document.createElement('div'); avatar.className='bot-avatar'; avatar.textContent='🤖';
   const bubble = document.createElement('div'); bubble.className='bubble-bot error-backend';
-  const p = document.createElement('p'); p.className='bubble-answer'; p.textContent = 'Backend not connected. Please make sure the Flask server is running by typing "python app.py" in your terminal.';
+  const p = document.createElement('p'); p.className='bubble-answer';
+  p.textContent = detail || (
+    'Cannot reach the FundBot API. Locally, run: python server.py (port 8000). ' +
+    'In production, confirm the Railway backend is deployed and Netlify /api proxy is configured.'
+  );
   bubble.appendChild(p);
   row.appendChild(avatar); row.appendChild(bubble); chatWindow.appendChild(row); scrollToBottom();
 }
@@ -251,25 +256,32 @@ function sendMessage() {
     }
   }, 5000);
 
-  fetch(BACKEND_URL + "/ask", {
+  fetch(API_BASE + "/ask", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: userQuestion })
   })
-  .then(res => res.json())
-  .then(data => {
+  .then(async (res) => {
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+          const msg = data.error || ("Request failed (" + res.status + ")");
+          throw new Error(msg);
+      }
+      return data;
+  })
+  .then((data) => {
       clearTimeout(slowLoadTimeout);
       removeThinkingBubble();
       if (data.error) {
-          showMessage("Error: " + data.error);
+          showMessage("Error: " + data.error, data.source || "");
       } else {
           showMessage(data.answer, data.source);
       }
   })
-  .catch(() => {
+  .catch((err) => {
       clearTimeout(slowLoadTimeout);
       removeThinkingBubble();
-      appendBackendErrorMessage();
+      appendBackendErrorMessage(err && err.message ? err.message : null);
   })
   .finally(() => {
     if (sendBtn) sendBtn.disabled = false;

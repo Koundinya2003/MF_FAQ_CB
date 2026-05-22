@@ -1,3 +1,5 @@
+# Legacy Streamlit UI — not used by FundBot (index.html + server.py).
+# Run: streamlit run app.py  — separate from the Netlify/Railway deployment.
 
 import streamlit as st
 from topic_detection import get_answer

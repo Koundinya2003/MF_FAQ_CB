@@ -1,5 +1,15 @@
+# FundBot static frontend — Netlify
+# API calls use same-origin /api/* proxy → Railway backend (avoids CORS in production)
+
 [build]
   publish = "."
+
+# Proxy browser requests to the Railway Flask API (same-origin, no CORS preflight issues)
+[[redirects]]
+  from = "/api/*"
+  to = "https://mffaqcb-production.up.railway.app/:splat"
+  status = 200
+  force = true
 
 [[headers]]
   for = "/*"

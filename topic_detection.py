@@ -37,7 +37,9 @@ def detect_topic(question):
         return ("general", "statement_download")
     if "expense ratio" in q:
         return (_detect_fund(q), "expense_ratio")
-    if "exit load" in q:
+    if "exit load" in q or ("exit" in q and "load" in q):
+        return (_detect_fund(q), "exit_load")
+    if "after 1 year" in q and "exit" in q:
         return (_detect_fund(q), "exit_load")
     if "lump sum" in q:
         return (_detect_fund(q), "lump_sum_minimum")

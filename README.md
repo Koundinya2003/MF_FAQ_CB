@@ -1,32 +1,82 @@
-# Mirae Asset Mutual Fund RAG Assistant
+# FundBot — Mirae Asset Mutual Fund FAQ
 
-This workspace contains a standalone Python Flask application that answers factual questions about Mirae Asset mutual funds using a retrieval-augmented generation (RAG) workflow.
+Static frontend (`index.html` + `script.js`) + Flask API (`server.py`) backed by curated fund facts (`Topic Detection Data.json`).
 
-## Files
+## Project layout
 
-- `scraper.py`: Scrapes official Mirae Asset fund pages and saves the raw page text to `data/scraped_data.json`.
-- `embedder.py`: Converts scraped text into embeddings using `sentence-transformers`, stores them in a FAISS index, and persists metadata.
-- `rag.py`: Retrieves the most relevant chunks from the FAISS index and queries OpenAI `gpt-3.5-turbo` with a prompt constructed from those documents.
-- `server.py`: Flask API that accepts questions and displays answers with source URLs.
-- `requirements.txt`: Python dependencies for the assistant.
+```
+Mutual_Funds/
+├── index.html              # Frontend UI
+├── script.js               # Chat UI + API client
+├── config.js               # API base URL (local vs Netlify proxy)
+├── styles.css
+├── server.py               # Flask API (/ask, /health)
+├── topic_detection.py      # Topic + fund detection
+├── Topic Detection Data.json
+├── requirements.txt
+├── Dockerfile              # Railway backend image
+├── railway.json            # Railway deploy hints
+├── netlify.toml            # Netlify publish + /api proxy
+├── .env.example
+├── DEPLOYMENT.md           # Full deploy + checklist
+└── app.py                  # Legacy Streamlit demo (not used by FundBot UI)
+```
 
-## Setup
+## Local development
 
-1. pip install -r requirements.txt
-2. export OPENAI_API_KEY="your_key_here"
-3. python scraper.py          # scrapes pages, saves scraped_data.json
-4. python embedder.py         # builds FAISS index  
-5. python server.py           # starts Flask API at http://localhost:5000
-6. Open index.html in browser # your frontend talks to the Flask server
-Do NOT run streamlit. The frontend is index.html and the backend is server.py on port 5000.
+### 1. Backend
 
-## Usage
+```bash
+cd /path/to/Mutual_Funds
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
-- Enter a question or select one of the example questions.
-- The app returns a concise answer and the source URL from the retrieved documents.
+# Optional — enables LLM-polished answers
+export OPENAI_API_KEY="sk-..."
+
+python server.py
+# API: http://localhost:8000/health  and  POST http://localhost:8000/ask
+```
+
+### 2. Frontend
+
+Serve the repo root with any static server, then open the site:
+
+```bash
+# Option A — Python
+python3 -m http.server 5500
+
+# Option B — VS Code Live Server (port 5500)
+```
+
+Open `http://localhost:5500` — `config.js` points API calls to `http://localhost:8000`.
+
+**Do not use `app.py` (Streamlit)** for this UI; the chat frontend uses `server.py` only.
+
+## Production URLs
+
+- Frontend: https://mf-faq.netlify.app
+- Backend: https://mffaqcb-production.up.railway.app
+- Frontend API path in prod: `/api/ask` (proxied to Railway)
+
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for deploy commands and verification checklist.
+
+## API
+
+### `GET /health`
+
+```json
+{"status": "ok", "message": "FundBot backend is running", "openai_configured": true}
+```
+
+### `POST /ask`
+
+Body: `{"question": "What is the expense ratio of Mirae Asset Large Cap Fund?"}`
+
+Response: `{"answer": "...", "source": "https://..."}`
 
 ## Notes
 
-- The assistant is designed for factual Mirae Asset mutual fund information only.
-- It does not provide investment advice.
-- Answers are generated from retrieved source content; if the information is unavailable, it replies with `I don't know.`
+- Facts-only assistant; no investment advice.
+- Answers come from `Topic Detection Data.json`; optional OpenAI pass when `OPENAI_API_KEY` is set.
