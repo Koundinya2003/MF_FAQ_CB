@@ -27,6 +27,12 @@
     return;
   }
 
+  // API + UI on the same Railway host — same-origin, no CORS
+  if (window.location.hostname.endsWith(".up.railway.app")) {
+    window.API_BASE_URL = window.location.origin;
+    return;
+  }
+
   // Production hosts — call Railway directly (CORS allowed in server.py).
   // Avoids Netlify /api proxy bandwidth limits.
   const PROD_HOSTS = new Set([

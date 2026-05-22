@@ -8,11 +8,13 @@ Environment variables:
 """
 
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from openai import OpenAI
 
 from topic_detection import get_answer
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -147,6 +149,20 @@ def health():
         "message": "FundBot backend is running",
         "openai_configured": _get_openai_client() is not None,
     })
+
+
+# Static frontend (served from Railway when Netlify is unavailable)
+@app.route("/", methods=["GET"])
+def serve_index():
+    return send_from_directory(BASE_DIR, "index.html")
+
+
+@app.route("/<path:filename>", methods=["GET"])
+def serve_static(filename):
+    allowed = {"script.js", "styles.css", "config.js", "index.html"}
+    if filename not in allowed:
+        return jsonify({"error": "Not found"}), 404
+    return send_from_directory(BASE_DIR, filename)
 
 
 if __name__ == "__main__":
