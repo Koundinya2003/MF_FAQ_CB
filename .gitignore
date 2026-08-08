@@ -1,19 +1,21 @@
+# Python
 __pycache__/
 *.py[cod]
-*.pyc
-agent-tools/
-*$py.class
-*.so
-.env
+*.egg-info/
+.pytest_cache/
 .venv/
 venv/
 ENV/
 env/
+
+# Secrets
+.env
+.env.local
+!.env.example
+
+# Vercel
+.vercel/
+
+# OS
 .DS_Store
-*.egg-info/
-dist/
-build/
-.pytest_cache/
-
-
-
+Thumbs.db

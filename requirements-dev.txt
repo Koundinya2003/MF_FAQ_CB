@@ -1,0 +1,7 @@
+-r requirements.txt
+
+# Tests
+pytest>=8,<9
+
+# Production WSGI server for the Docker image (Vercel does not use this).
+gunicorn>=22,<24

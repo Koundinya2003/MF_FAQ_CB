@@ -1,0 +1,880 @@
+{
+  "version": "2.0",
+  "corpus_last_updated": "June 2025",
+  "disclaimer": "Factual scheme information only. Not investment advice. Verify all figures on the official source before acting on them.",
+  "funds": {
+    "large_cap": {
+      "name": "Mirae Asset Large Cap Fund",
+      "category": "Large Cap Equity",
+      "aliases": ["large cap", "largecap", "large-cap", "bluechip", "blue chip"],
+      "url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund"
+    },
+    "flexi_cap": {
+      "name": "Mirae Asset Flexi Cap Fund",
+      "category": "Flexi Cap Equity",
+      "aliases": ["flexi cap", "flexicap", "flexi-cap", "flexible cap"],
+      "url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund"
+    },
+    "elss": {
+      "name": "Mirae Asset ELSS Tax Saver Fund",
+      "category": "ELSS (Equity Linked Savings Scheme)",
+      "aliases": ["elss", "tax saver", "taxsaver", "tax-saver", "tax saving", "80c fund"],
+      "url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund"
+    },
+    "midcap": {
+      "name": "Mirae Asset Midcap Fund",
+      "category": "Mid Cap Equity",
+      "aliases": ["midcap", "mid cap", "mid-cap"],
+      "url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund"
+    }
+  },
+  "documents": [
+    {
+      "id": "large_cap.expense_ratio",
+      "fund": "large_cap",
+      "topic": "expense_ratio",
+      "title": "Expense ratio (TER) of Mirae Asset Large Cap Fund",
+      "text": "Mirae Asset Large Cap Fund publishes its Total Expense Ratio (TER) monthly on the AMC site. The Regular plan TER varies with AUM slabs under SEBI limits, and the Direct plan TER is lower because it excludes distributor commission. Verify the latest figure on the official TER disclosure page before investing.",
+      "questions": [
+        "what is the expense ratio of mirae asset large cap fund",
+        "ter of large cap fund",
+        "how much does the large cap fund charge annually",
+        "annual charges large cap fund",
+        "what are the fees for the large cap scheme",
+        "direct vs regular expense ratio large cap"
+      ],
+      "keywords": ["expense", "ratio", "ter", "total expense ratio", "cost", "charges", "fee", "fees", "annual"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "large_cap.exit_load",
+      "fund": "large_cap",
+      "topic": "exit_load",
+      "title": "Exit load of Mirae Asset Large Cap Fund",
+      "text": "Mirae Asset Large Cap Fund charges an exit load of 1% if units are redeemed within 365 days from the date of allotment. No exit load applies if units are redeemed after 365 days.",
+      "questions": [
+        "what is the exit load for mirae asset large cap fund",
+        "is there an exit load on large cap fund",
+        "redemption charges large cap fund",
+        "what happens if i redeem large cap fund within a year",
+        "exit load after 1 year large cap",
+        "penalty for early withdrawal large cap fund",
+        "what do I pay to exit the large cap fund early",
+        "charge for early redemption from large cap"
+      ],
+      "keywords": ["exit", "load", "redeem", "redemption", "withdraw", "withdrawal", "penalty", "365", "days", "early", "pay", "charge"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "large_cap.sip_minimum",
+      "fund": "large_cap",
+      "topic": "sip_minimum",
+      "title": "Minimum SIP amount for Mirae Asset Large Cap Fund",
+      "text": "The minimum SIP instalment for Mirae Asset Large Cap Fund is Rs. 99 per instalment, in multiples of Re. 1 thereafter.",
+      "questions": [
+        "what is the minimum sip for mirae asset large cap fund",
+        "smallest sip amount large cap fund",
+        "how little can i invest monthly in large cap fund",
+        "minimum monthly investment large cap",
+        "sip amount large cap fund",
+        "can i start a sip with 100 rupees in large cap"
+      ],
+      "keywords": ["sip", "minimum", "instalment", "installment", "monthly", "systematic", "investment", "plan", "99"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "large_cap.lump_sum_minimum",
+      "fund": "large_cap",
+      "topic": "lump_sum_minimum",
+      "title": "Minimum lump sum investment for Mirae Asset Large Cap Fund",
+      "text": "The minimum lump sum investment for Mirae Asset Large Cap Fund is Rs. 5,000, in multiples of Re. 1 thereafter. The minimum additional purchase is Rs. 1,000.",
+      "questions": [
+        "what is the minimum lump sum for mirae asset large cap fund",
+        "one time investment amount large cap fund",
+        "minimum lumpsum large cap",
+        "how much do i need to invest at once in large cap fund",
+        "additional purchase amount large cap fund"
+      ],
+      "keywords": ["lump", "sum", "lumpsum", "one time", "onetime", "minimum", "additional", "purchase", "5000"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "large_cap.benchmark",
+      "fund": "large_cap",
+      "topic": "benchmark",
+      "title": "Benchmark index of Mirae Asset Large Cap Fund",
+      "text": "Mirae Asset Large Cap Fund is benchmarked against the NIFTY 100 Total Return Index (TRI).",
+      "questions": [
+        "what is the benchmark for mirae asset large cap fund",
+        "which index does large cap fund track",
+        "benchmark index large cap fund",
+        "what is large cap fund compared against",
+        "nifty 100 large cap fund"
+      ],
+      "keywords": ["benchmark", "index", "nifty", "tri", "total return", "track", "compared"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "large_cap.riskometer",
+      "fund": "large_cap",
+      "topic": "riskometer",
+      "title": "Riskometer level of Mirae Asset Large Cap Fund",
+      "text": "Mirae Asset Large Cap Fund carries a Very High risk profile as per the AMC riskometer classification for this equity scheme.",
+      "questions": [
+        "what is the riskometer level of mirae asset large cap fund",
+        "how risky is the large cap fund",
+        "risk level large cap fund",
+        "is large cap fund high risk",
+        "risk rating large cap scheme"
+      ],
+      "keywords": ["riskometer", "risk", "level", "rating", "risky", "profile", "very high"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "large_cap.sip_frequency",
+      "fund": "large_cap",
+      "topic": "sip_frequency",
+      "title": "SIP frequency options for Mirae Asset Large Cap Fund",
+      "text": "Mirae Asset Large Cap Fund supports SIP facilities including monthly and quarterly frequencies, along with other systematic facilities such as SWP, STP, and switch as per the AMC offer document.",
+      "questions": [
+        "what sip frequencies does mirae asset large cap fund offer",
+        "can i do a quarterly sip in large cap fund",
+        "sip frequency options large cap",
+        "is weekly sip available for large cap fund",
+        "does large cap fund support swp and stp"
+      ],
+      "keywords": ["sip", "frequency", "monthly", "quarterly", "weekly", "swp", "stp", "switch", "systematic"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "large_cap.category",
+      "fund": "large_cap",
+      "topic": "category",
+      "title": "Scheme category of Mirae Asset Large Cap Fund",
+      "text": "Mirae Asset Large Cap Fund is an open-ended equity scheme predominantly investing in large cap stocks, as defined by SEBI's scheme categorisation. Large cap stocks are the top 100 companies by full market capitalisation.",
+      "questions": [
+        "what type of fund is mirae asset large cap fund",
+        "what category is large cap fund",
+        "is large cap fund an equity scheme",
+        "what does large cap fund invest in",
+        "scheme type large cap"
+      ],
+      "keywords": ["category", "type", "scheme", "open ended", "equity", "invests", "classification", "top 100"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+
+    {
+      "id": "flexi_cap.expense_ratio",
+      "fund": "flexi_cap",
+      "topic": "expense_ratio",
+      "title": "Expense ratio (TER) of Mirae Asset Flexi Cap Fund",
+      "text": "Mirae Asset Flexi Cap Fund publishes its Total Expense Ratio (TER) monthly. The TER differs between the Regular and Direct plans. Check the latest values on the official AMC TER disclosure page.",
+      "questions": [
+        "what is the expense ratio of mirae asset flexi cap fund",
+        "ter of flexi cap fund",
+        "annual charges flexi cap fund",
+        "how much does flexi cap fund cost per year",
+        "fees for flexi cap scheme"
+      ],
+      "keywords": ["expense", "ratio", "ter", "total expense ratio", "cost", "charges", "fee", "fees", "annual"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "flexi_cap.exit_load",
+      "fund": "flexi_cap",
+      "topic": "exit_load",
+      "title": "Exit load of Mirae Asset Flexi Cap Fund",
+      "text": "Mirae Asset Flexi Cap Fund charges an exit load of 1% if units are redeemed within 365 days from the date of allotment. No exit load applies after 365 days.",
+      "questions": [
+        "what is the exit load for mirae asset flexi cap fund",
+        "is there an exit load on flexi cap fund",
+        "redemption charges flexi cap fund",
+        "exit load after 1 year flexi cap",
+        "what if i withdraw flexi cap fund early",
+        "what do I pay to exit the flexi cap fund early",
+        "charge for early redemption from flexi cap"
+      ],
+      "keywords": ["exit", "load", "redeem", "redemption", "withdraw", "withdrawal", "penalty", "365", "days", "early", "pay", "charge"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "flexi_cap.sip_minimum",
+      "fund": "flexi_cap",
+      "topic": "sip_minimum",
+      "title": "Minimum SIP amount for Mirae Asset Flexi Cap Fund",
+      "text": "The minimum SIP instalment for Mirae Asset Flexi Cap Fund is Rs. 99 per instalment, in multiples of Re. 1 thereafter.",
+      "questions": [
+        "what is the minimum sip for mirae asset flexi cap fund",
+        "smallest sip amount flexi cap fund",
+        "minimum monthly investment flexi cap",
+        "how little can i invest in flexi cap fund",
+        "sip amount flexi cap"
+      ],
+      "keywords": ["sip", "minimum", "instalment", "installment", "monthly", "systematic", "investment", "99"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "flexi_cap.lump_sum_minimum",
+      "fund": "flexi_cap",
+      "topic": "lump_sum_minimum",
+      "title": "Minimum lump sum investment for Mirae Asset Flexi Cap Fund",
+      "text": "The minimum lump sum investment for Mirae Asset Flexi Cap Fund is Rs. 5,000, in multiples of Re. 1 thereafter. The minimum additional purchase is Rs. 1,000.",
+      "questions": [
+        "what is the minimum lump sum for mirae asset flexi cap fund",
+        "one time investment amount flexi cap fund",
+        "minimum lumpsum flexi cap",
+        "how much to invest at once in flexi cap fund"
+      ],
+      "keywords": ["lump", "sum", "lumpsum", "one time", "onetime", "minimum", "additional", "purchase", "5000"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "flexi_cap.benchmark",
+      "fund": "flexi_cap",
+      "topic": "benchmark",
+      "title": "Benchmark index of Mirae Asset Flexi Cap Fund",
+      "text": "Mirae Asset Flexi Cap Fund is benchmarked against the Nifty 500 Index (Total Return Index).",
+      "questions": [
+        "what is the benchmark for mirae asset flexi cap fund",
+        "which index does flexi cap fund track",
+        "benchmark index flexi cap fund",
+        "nifty 500 flexi cap fund"
+      ],
+      "keywords": ["benchmark", "index", "nifty", "tri", "total return", "track", "500"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "flexi_cap.riskometer",
+      "fund": "flexi_cap",
+      "topic": "riskometer",
+      "title": "Riskometer level of Mirae Asset Flexi Cap Fund",
+      "text": "Mirae Asset Flexi Cap Fund carries a Very High risk profile as per the AMC riskometer for this flexi cap equity scheme.",
+      "questions": [
+        "what is the riskometer level of mirae asset flexi cap fund",
+        "how risky is flexi cap fund",
+        "risk level flexi cap fund",
+        "risk rating flexi cap scheme"
+      ],
+      "keywords": ["riskometer", "risk", "level", "rating", "risky", "profile", "very high"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "flexi_cap.sip_frequency",
+      "fund": "flexi_cap",
+      "topic": "sip_frequency",
+      "title": "SIP frequency options for Mirae Asset Flexi Cap Fund",
+      "text": "Mirae Asset Flexi Cap Fund supports SIP with monthly and quarterly options, with minimum instalment counts applying per the scheme SID. SWP, STP, and switch facilities are also available.",
+      "questions": [
+        "what sip frequencies does mirae asset flexi cap fund offer",
+        "can i do a quarterly sip in flexi cap fund",
+        "sip frequency options flexi cap",
+        "does flexi cap fund support swp and stp"
+      ],
+      "keywords": ["sip", "frequency", "monthly", "quarterly", "swp", "stp", "switch", "systematic"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "flexi_cap.category",
+      "fund": "flexi_cap",
+      "topic": "category",
+      "title": "Scheme category of Mirae Asset Flexi Cap Fund",
+      "text": "Mirae Asset Flexi Cap Fund is an open-ended dynamic equity scheme investing across large cap, mid cap and small cap stocks. A flexi cap fund has no fixed allocation limits across market capitalisations under SEBI categorisation.",
+      "questions": [
+        "what type of fund is mirae asset flexi cap fund",
+        "what category is flexi cap fund",
+        "what does flexi cap fund invest in",
+        "difference between flexi cap and multi cap"
+      ],
+      "keywords": ["category", "type", "scheme", "open ended", "dynamic", "equity", "invests", "market capitalisation"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+
+    {
+      "id": "elss.expense_ratio",
+      "fund": "elss",
+      "topic": "expense_ratio",
+      "title": "Expense ratio (TER) of Mirae Asset ELSS Tax Saver Fund",
+      "text": "Mirae Asset ELSS Tax Saver Fund publishes its Total Expense Ratio (TER) monthly on the AMC TER page. The TER varies by Regular or Direct plan. Verify the latest figure before investing.",
+      "questions": [
+        "what is the expense ratio of mirae asset elss tax saver fund",
+        "ter of elss fund",
+        "annual charges tax saver fund",
+        "how much does the elss fund cost per year",
+        "fees for elss tax saver scheme"
+      ],
+      "keywords": ["expense", "ratio", "ter", "total expense ratio", "cost", "charges", "fee", "fees", "annual"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.exit_load",
+      "fund": "elss",
+      "topic": "exit_load",
+      "title": "Exit load of Mirae Asset ELSS Tax Saver Fund",
+      "text": "Mirae Asset ELSS Tax Saver Fund follows the exit load structure set out in its scheme documents. Equity ELSS schemes typically do not charge an exit load on redemption after the statutory 3-year lock-in, because redemption before that point is not permitted at all. Confirm current load details on the official scheme page.",
+      "questions": [
+        "what is the exit load for mirae asset elss tax saver fund",
+        "is there an exit load on elss fund",
+        "redemption charges tax saver fund",
+        "do i pay a penalty when redeeming elss",
+        "exit load elss after lock in"
+      ],
+      "keywords": ["exit", "load", "redeem", "redemption", "withdraw", "penalty", "lock-in", "lock in"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.sip_minimum",
+      "fund": "elss",
+      "topic": "sip_minimum",
+      "title": "Minimum SIP amount for Mirae Asset ELSS Tax Saver Fund",
+      "text": "The minimum investment for Mirae Asset ELSS Tax Saver Fund is Rs. 99, with subsequent investments in multiples of Rs. 500 as per the scheme page.",
+      "questions": [
+        "what is the minimum sip for mirae asset elss tax saver fund",
+        "smallest sip amount elss fund",
+        "minimum monthly investment tax saver",
+        "how little can i invest in elss fund",
+        "sip amount elss tax saver"
+      ],
+      "keywords": ["sip", "minimum", "instalment", "installment", "monthly", "systematic", "investment", "99", "500"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.lump_sum_minimum",
+      "fund": "elss",
+      "topic": "lump_sum_minimum",
+      "title": "Minimum lump sum investment for Mirae Asset ELSS Tax Saver Fund",
+      "text": "The minimum lump sum for Mirae Asset ELSS Tax Saver Fund starts at Rs. 99, with additional applications in multiples of Rs. 500 thereafter.",
+      "questions": [
+        "what is the minimum lump sum for mirae asset elss tax saver fund",
+        "one time investment amount elss fund",
+        "minimum lumpsum tax saver",
+        "how much to invest at once in elss"
+      ],
+      "keywords": ["lump", "sum", "lumpsum", "one time", "onetime", "minimum", "additional", "purchase"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.benchmark",
+      "fund": "elss",
+      "topic": "benchmark",
+      "title": "Benchmark index of Mirae Asset ELSS Tax Saver Fund",
+      "text": "Mirae Asset ELSS Tax Saver Fund uses NIFTY 500 (TRI) as its Tier 1 benchmark and Nifty 200 (TRI) as its Tier 2 benchmark, as stated on the official scheme page.",
+      "questions": [
+        "what is the benchmark for mirae asset elss tax saver fund",
+        "which index does elss fund track",
+        "benchmark index tax saver fund",
+        "tier 1 and tier 2 benchmark elss"
+      ],
+      "keywords": ["benchmark", "index", "nifty", "tri", "tier", "total return", "track", "500", "200"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.riskometer",
+      "fund": "elss",
+      "topic": "riskometer",
+      "title": "Riskometer level of Mirae Asset ELSS Tax Saver Fund",
+      "text": "Mirae Asset ELSS Tax Saver Fund is classified as Very High risk on the AMC riskometer, consistent with an equity-linked savings scheme.",
+      "questions": [
+        "what is the riskometer level of mirae asset elss tax saver fund",
+        "how risky is the elss fund",
+        "risk level tax saver fund",
+        "risk rating elss scheme"
+      ],
+      "keywords": ["riskometer", "risk", "level", "rating", "risky", "profile", "very high"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.sip_frequency",
+      "fund": "elss",
+      "topic": "sip_frequency",
+      "title": "SIP frequency options for Mirae Asset ELSS Tax Saver Fund",
+      "text": "Mirae Asset ELSS Tax Saver Fund offers SIP and other systematic facilities such as SWP and STP as per the AMC scheme documents. Each SIP instalment is separately subject to the 3-year ELSS lock-in.",
+      "questions": [
+        "what sip frequencies does mirae asset elss tax saver fund offer",
+        "sip frequency options elss",
+        "does elss fund support swp and stp",
+        "is each elss sip instalment locked in separately"
+      ],
+      "keywords": ["sip", "frequency", "monthly", "quarterly", "swp", "stp", "systematic", "instalment", "lock-in"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.category",
+      "fund": "elss",
+      "topic": "category",
+      "title": "Scheme category of Mirae Asset ELSS Tax Saver Fund",
+      "text": "Mirae Asset ELSS Tax Saver Fund is an open-ended equity linked savings scheme with a statutory lock-in of 3 years and a tax benefit under Section 80C of the Income Tax Act.",
+      "questions": [
+        "what type of fund is mirae asset elss tax saver fund",
+        "what category is the tax saver fund",
+        "is elss fund an equity scheme",
+        "does elss qualify for 80c"
+      ],
+      "keywords": ["category", "type", "scheme", "open ended", "equity", "80c", "tax benefit", "deduction"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "elss.elss_lockin",
+      "fund": "elss",
+      "topic": "elss_lockin",
+      "title": "Lock-in period of Mirae Asset ELSS Tax Saver Fund",
+      "text": "Mirae Asset ELSS Tax Saver Fund has a mandatory lock-in period of 3 years from the date of each investment instalment, as mandated by SEBI for all ELSS funds. Units cannot be redeemed before their individual 3-year lock-in completes.",
+      "questions": [
+        "what is the lock-in period for mirae asset elss tax saver fund",
+        "how long is my money locked in the elss fund",
+        "can i withdraw elss before 3 years",
+        "lock in period tax saver fund",
+        "when can i redeem my elss units"
+      ],
+      "keywords": ["lock-in", "lock in", "lockin", "locked", "3 year", "three year", "redeem", "withdraw", "mandatory"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+
+    {
+      "id": "midcap.expense_ratio",
+      "fund": "midcap",
+      "topic": "expense_ratio",
+      "title": "Expense ratio (TER) of Mirae Asset Midcap Fund",
+      "text": "Mirae Asset Midcap Fund publishes its Total Expense Ratio (TER) monthly. Check the latest Regular and Direct plan TER on the official AMC TER disclosure page.",
+      "questions": [
+        "what is the expense ratio of mirae asset midcap fund",
+        "ter of midcap fund",
+        "annual charges midcap fund",
+        "how much does the midcap fund cost per year",
+        "fees for midcap scheme"
+      ],
+      "keywords": ["expense", "ratio", "ter", "total expense ratio", "cost", "charges", "fee", "fees", "annual"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "midcap.exit_load",
+      "fund": "midcap",
+      "topic": "exit_load",
+      "title": "Exit load of Mirae Asset Midcap Fund",
+      "text": "Mirae Asset Midcap Fund exit load details are published in the scheme SID and the exit load circulars on the AMC website. Many Mirae Asset equity schemes charge 1% if redeemed within 365 days and nil thereafter. Confirm the current structure on the official scheme page.",
+      "questions": [
+        "what is the exit load for mirae asset midcap fund",
+        "is there an exit load on midcap fund",
+        "redemption charges midcap fund",
+        "exit load after 1 year midcap",
+        "penalty for early withdrawal midcap fund",
+        "what do I pay to exit the midcap fund early",
+        "charge for early redemption from midcap"
+      ],
+      "keywords": ["exit", "load", "redeem", "redemption", "withdraw", "penalty", "365", "days", "sid", "early", "pay", "charge"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "midcap.sip_minimum",
+      "fund": "midcap",
+      "topic": "sip_minimum",
+      "title": "Minimum SIP amount for Mirae Asset Midcap Fund",
+      "text": "The minimum SIP instalment for Mirae Asset Midcap Fund is Rs. 99 per instalment, in multiples of Re. 1 thereafter.",
+      "questions": [
+        "what is the minimum sip for mirae asset midcap fund",
+        "smallest sip amount midcap fund",
+        "minimum monthly investment midcap",
+        "how little can i invest in midcap fund"
+      ],
+      "keywords": ["sip", "minimum", "instalment", "installment", "monthly", "systematic", "investment", "99"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "midcap.lump_sum_minimum",
+      "fund": "midcap",
+      "topic": "lump_sum_minimum",
+      "title": "Minimum lump sum investment for Mirae Asset Midcap Fund",
+      "text": "Mirae Asset Midcap Fund accepts lump sum investments with a minimum additional application of Rs. 1,000, in multiples of Re. 1. Confirm the initial minimum lump sum on the scheme page or the SID.",
+      "questions": [
+        "what is the minimum lump sum for mirae asset midcap fund",
+        "one time investment amount midcap fund",
+        "minimum lumpsum midcap",
+        "additional purchase amount midcap fund"
+      ],
+      "keywords": ["lump", "sum", "lumpsum", "one time", "onetime", "minimum", "additional", "purchase", "1000"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "midcap.benchmark",
+      "fund": "midcap",
+      "topic": "benchmark",
+      "title": "Benchmark index of Mirae Asset Midcap Fund",
+      "text": "Mirae Asset Midcap Fund is benchmarked against the NIFTY Midcap 150 Total Return Index (TRI).",
+      "questions": [
+        "what is the benchmark for mirae asset midcap fund",
+        "which index does midcap fund track",
+        "benchmark index midcap fund",
+        "nifty midcap 150"
+      ],
+      "keywords": ["benchmark", "index", "nifty", "tri", "total return", "track", "150"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "midcap.riskometer",
+      "fund": "midcap",
+      "topic": "riskometer",
+      "title": "Riskometer level of Mirae Asset Midcap Fund",
+      "text": "Mirae Asset Midcap Fund carries a Very High risk profile as per the AMC riskometer for mid cap equity schemes.",
+      "questions": [
+        "what is the riskometer level of mirae asset midcap fund",
+        "how risky is the midcap fund",
+        "risk level midcap fund",
+        "risk rating midcap scheme"
+      ],
+      "keywords": ["riskometer", "risk", "level", "rating", "risky", "profile", "very high"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "midcap.sip_frequency",
+      "fund": "midcap",
+      "topic": "sip_frequency",
+      "title": "SIP frequency options for Mirae Asset Midcap Fund",
+      "text": "Mirae Asset Midcap Fund supports SIP, SWP, STP, and switch facilities. Monthly and quarterly SIP options are available per the AMC offer document.",
+      "questions": [
+        "what sip frequencies does mirae asset midcap fund offer",
+        "can i do a quarterly sip in midcap fund",
+        "sip frequency options midcap",
+        "does midcap fund support swp and stp"
+      ],
+      "keywords": ["sip", "frequency", "monthly", "quarterly", "swp", "stp", "switch", "systematic"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "midcap.category",
+      "fund": "midcap",
+      "topic": "category",
+      "title": "Scheme category of Mirae Asset Midcap Fund",
+      "text": "Mirae Asset Midcap Fund is an open-ended equity scheme predominantly investing in mid cap stocks. Under SEBI categorisation, mid cap stocks are companies ranked 101st to 250th by full market capitalisation.",
+      "questions": [
+        "what type of fund is mirae asset midcap fund",
+        "what category is midcap fund",
+        "what does midcap fund invest in",
+        "which companies count as mid cap"
+      ],
+      "keywords": ["category", "type", "scheme", "open ended", "equity", "invests", "101", "250", "market capitalisation"],
+      "source_url": "https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    },
+
+    {
+      "id": "general.what_is_sip",
+      "fund": "general",
+      "topic": "what_is_sip",
+      "title": "What is a SIP (Systematic Investment Plan)",
+      "text": "A SIP (Systematic Investment Plan) lets you invest a fixed amount in a mutual fund at regular intervals such as monthly, weekly, or quarterly. It helps you build an investment gradually without needing a large lump sum upfront, and it averages your purchase price across market levels.",
+      "questions": [
+        "what is a sip",
+        "what does sip mean",
+        "explain systematic investment plan",
+        "how does a sip work",
+        "sip meaning in mutual funds"
+      ],
+      "keywords": ["sip", "systematic", "investment", "plan", "what is", "meaning", "explain", "definition"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.what_is_expense_ratio",
+      "fund": "general",
+      "topic": "what_is_expense_ratio",
+      "title": "What is an expense ratio",
+      "text": "The expense ratio is the annual fee a mutual fund charges to manage your investment, expressed as a percentage of the amount you have invested. A lower expense ratio means more of your money stays invested. It is deducted from the scheme's NAV, so you never pay it separately.",
+      "questions": [
+        "what is an expense ratio",
+        "what does expense ratio mean",
+        "explain total expense ratio",
+        "what is ter",
+        "how is expense ratio charged"
+      ],
+      "keywords": ["expense", "ratio", "ter", "what is", "meaning", "explain", "definition", "annual fee"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.what_is_exit_load",
+      "fund": "general",
+      "topic": "what_is_exit_load",
+      "title": "What is an exit load",
+      "text": "An exit load is a fee charged when you redeem mutual fund units before a specified holding period. It is designed to discourage very early withdrawals. Once the exit load period ends, redemption is free of that charge.",
+      "questions": [
+        "what is an exit load",
+        "what does exit load mean",
+        "explain exit load",
+        "why do funds charge exit load",
+        "exit load definition"
+      ],
+      "keywords": ["exit", "load", "what is", "meaning", "explain", "definition", "redeem", "fee"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.what_is_nav",
+      "fund": "general",
+      "topic": "what_is_nav",
+      "title": "What is NAV (Net Asset Value)",
+      "text": "NAV (Net Asset Value) is the per-unit price of a mutual fund scheme. It is calculated at the end of every business day from the scheme's total assets minus liabilities, divided by the number of units outstanding. When you invest, units are allotted to you at the applicable NAV.",
+      "questions": [
+        "what is nav",
+        "what does net asset value mean",
+        "explain nav",
+        "how is nav calculated",
+        "nav meaning mutual fund"
+      ],
+      "keywords": ["nav", "net asset value", "what is", "meaning", "explain", "definition", "per unit", "price"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.what_is_elss",
+      "fund": "general",
+      "topic": "what_is_elss",
+      "title": "What is ELSS (Equity Linked Savings Scheme)",
+      "text": "ELSS (Equity Linked Savings Scheme) is a category of mutual fund that invests primarily in equities and qualifies for a tax deduction under Section 80C of the Income Tax Act, up to Rs. 1.5 lakh per financial year. Every ELSS investment carries a mandatory 3-year lock-in.",
+      "questions": [
+        "what is elss",
+        "what does elss stand for",
+        "explain equity linked savings scheme",
+        "how does elss save tax",
+        "elss 80c deduction"
+      ],
+      "keywords": ["elss", "equity linked savings", "what is", "meaning", "explain", "80c", "tax", "deduction", "section"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.elss_lockin",
+      "fund": "general",
+      "topic": "elss_lockin",
+      "title": "ELSS lock-in period rules",
+      "text": "All ELSS (Equity Linked Savings Scheme) funds carry a mandatory lock-in period of 3 years from the date of each investment, including each individual SIP instalment, as required by SEBI regulations. Redemption before the 3 years complete is not permitted.",
+      "questions": [
+        "what is the elss lock-in period",
+        "how long is elss locked in",
+        "can i withdraw elss before 3 years",
+        "is each sip instalment locked in separately",
+        "elss lock in rules"
+      ],
+      "keywords": ["elss", "lock-in", "lock in", "lockin", "locked", "3 year", "three year", "sebi", "mandatory"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.statement_download",
+      "fund": "general",
+      "topic": "statement_download",
+      "title": "How to download an account or capital gains statement",
+      "text": "You can download your Mirae Asset capital gains or consolidated account statement from the registrars: CAMS at camsonline.com or KFintech at kfintech.com. Log in, open Statements, select Capital Gains or Consolidated Account Statement, choose the financial year, and download the PDF.",
+      "questions": [
+        "how do i download my capital gains statement",
+        "where can i get my account statement",
+        "how to get cas statement",
+        "download mutual fund statement",
+        "cams kfintech statement download",
+        "how to get my tax statement for mutual funds"
+      ],
+      "keywords": ["statement", "download", "capital gains", "cas", "consolidated", "cams", "kfintech", "registrar", "pdf"],
+      "source_url": "https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement",
+      "source_label": "camsonline.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.direct_vs_regular",
+      "fund": "general",
+      "topic": "direct_vs_regular",
+      "title": "Difference between Direct and Regular plans",
+      "text": "A Direct plan is bought straight from the AMC and carries no distributor commission, so its expense ratio is lower. A Regular plan is bought through a distributor or advisor whose commission is built into the expense ratio. Both plans hold exactly the same portfolio; only the cost and therefore the NAV differ.",
+      "questions": [
+        "what is the difference between direct and regular plan",
+        "direct vs regular mutual fund",
+        "why is direct plan cheaper",
+        "should i pick direct or regular plan",
+        "what is a direct plan"
+      ],
+      "keywords": ["direct", "regular", "plan", "difference", "distributor", "commission", "expense", "cheaper"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.what_is_riskometer",
+      "fund": "general",
+      "topic": "what_is_riskometer",
+      "title": "What is the SEBI riskometer",
+      "text": "The riskometer is a SEBI-mandated risk label displayed on every mutual fund scheme. It has six levels: Low, Low to Moderate, Moderate, Moderately High, High, and Very High. AMCs review and disclose the riskometer level for each scheme every month.",
+      "questions": [
+        "what is a riskometer",
+        "explain the riskometer levels",
+        "how many risk levels are there",
+        "what does very high risk mean",
+        "sebi riskometer meaning"
+      ],
+      "keywords": ["riskometer", "risk", "levels", "sebi", "what is", "meaning", "explain", "label", "very high"],
+      "source_url": "https://www.amfiindia.com/research-information/other-data/riskometer",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.what_is_swp",
+      "fund": "general",
+      "topic": "what_is_swp",
+      "title": "What is an SWP (Systematic Withdrawal Plan)",
+      "text": "An SWP (Systematic Withdrawal Plan) lets you withdraw a fixed amount from your mutual fund holding at regular intervals, the mirror image of a SIP. Units are redeemed at the applicable NAV on each withdrawal date, and exit load or lock-in rules still apply.",
+      "questions": [
+        "what is an swp",
+        "what does systematic withdrawal plan mean",
+        "explain swp",
+        "how does swp work",
+        "difference between sip and swp"
+      ],
+      "keywords": ["swp", "systematic", "withdrawal", "plan", "what is", "meaning", "explain", "redeem"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.what_is_stp",
+      "fund": "general",
+      "topic": "what_is_stp",
+      "title": "What is an STP (Systematic Transfer Plan)",
+      "text": "An STP (Systematic Transfer Plan) moves a fixed amount from one mutual fund scheme to another at regular intervals, usually from a debt or liquid scheme into an equity scheme. Each transfer counts as a redemption from the source scheme, so exit load and tax rules apply to it.",
+      "questions": [
+        "what is an stp",
+        "what does systematic transfer plan mean",
+        "explain stp",
+        "how does stp work",
+        "difference between stp and sip"
+      ],
+      "keywords": ["stp", "systematic", "transfer", "plan", "what is", "meaning", "explain", "switch"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.kyc",
+      "fund": "general",
+      "topic": "kyc",
+      "title": "KYC requirement for mutual fund investing",
+      "text": "KYC (Know Your Customer) verification is mandatory before you can invest in any mutual fund in India. It is completed once through a KRA (KYC Registration Agency) and is then valid across all AMCs. You can check or complete your KYC status through CAMS, KFintech, or any SEBI-registered KRA.",
+      "questions": [
+        "do i need kyc to invest in mutual funds",
+        "what is kyc",
+        "how do i complete kyc",
+        "where can i check my kyc status",
+        "is kyc required for every amc"
+      ],
+      "keywords": ["kyc", "know your customer", "verification", "kra", "mandatory", "status", "registration"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.equity_taxation",
+      "fund": "general",
+      "topic": "equity_taxation",
+      "title": "How equity mutual funds are taxed",
+      "text": "Gains on equity mutual funds held for more than 12 months are treated as long-term capital gains, and gains on units held for 12 months or less are short-term capital gains. The applicable rates and exemption limits are set by the Income Tax Act and change from time to time, so confirm the current rates with the Income Tax Department or a tax professional before filing.",
+      "questions": [
+        "how are equity mutual funds taxed",
+        "what is ltcg on mutual funds",
+        "short term capital gains mutual fund",
+        "tax on mutual fund redemption",
+        "capital gains tax equity fund",
+        "tax when I sell my mutual fund units",
+        "do I pay tax on redeeming equity fund units"
+      ],
+      "keywords": ["tax", "taxed", "taxation", "ltcg", "stcg", "capital gains", "long term", "short term", "12 months", "sell", "selling", "unit"],
+      "source_url": "https://www.amfiindia.com/investor-corner",
+      "source_label": "amfiindia.com",
+      "last_updated": "June 2025"
+    },
+    {
+      "id": "general.coverage",
+      "fund": "general",
+      "topic": "coverage",
+      "title": "What FundBot covers",
+      "text": "FundBot answers factual questions about four Mirae Asset schemes: the Large Cap Fund, the Flexi Cap Fund, the ELSS Tax Saver Fund, and the Midcap Fund. For each it can report the expense ratio, exit load, minimum SIP and lump sum, benchmark index, riskometer level, SIP frequency options, and scheme category. It also explains general mutual fund concepts. It does not give investment advice, compare fund performance, or predict returns.",
+      "questions": [
+        "what can you help me with",
+        "which funds do you cover",
+        "what questions can i ask",
+        "what do you know about",
+        "help",
+        "what topics are supported"
+      ],
+      "keywords": ["cover", "help", "support", "funds", "topics", "questions", "capabilities", "what can you do"],
+      "source_url": "https://www.miraeassetmf.co.in",
+      "source_label": "miraeassetmf.co.in",
+      "last_updated": "June 2025"
+    }
+  ]
+}

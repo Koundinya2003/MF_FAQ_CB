@@ -1,92 +1,166 @@
-# FundBot — Deployment Guide
+# Deploying FundBot
 
-## Architecture
-
-| Layer | Host | URL |
-|-------|------|-----|
-| Frontend (static) | Netlify | `https://mf-faq.netlify.app` |
-| Backend (Flask API) | Railway | `https://mffaqcb-production.up.railway.app` |
-
-Production frontend calls **`/api/ask`** on the same Netlify origin. Netlify proxies that to Railway (`netlify.toml`), so the browser never needs cross-origin CORS for normal users.
-
-Local development calls **`http://localhost:8000/ask`** directly (`config.js`).
+Everything below is free. Vercel's Hobby plan covers the whole app, and
+OpenRouter's free tier covers the model.
 
 ---
 
-## Environment variables
+## Architecture on Vercel
 
-### Railway (backend) — required in dashboard
+One project, one domain, no CORS:
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `OPENAI_API_KEY` | Recommended | Enables LLM polish on answers. **If unset, answers still work** using retrieved facts only. |
-| `ALLOWED_ORIGINS` | Optional | Comma-separated list for direct browser → Railway calls (GitHub Pages, previews). |
-| `PORT` | Auto | Set by Railway; do not override unless debugging. |
+| Path | Served by | Source |
+|---|---|---|
+| `/`, `/styles.css`, `/script.js` | Vercel CDN (static) | `public/` |
+| `/api/ask` | Python serverless function | `api/ask.py` |
+| `/api/health` | Python serverless function | `api/health.py` |
+| `/api/search` | Python serverless function (404 unless `FUNDBOT_DEBUG=1`) | `api/search.py` |
 
-### Netlify (frontend)
+Vercel maps each file in `api/` to its own route, so no rewrite rules are
+involved and there is no ambiguity about which path a function receives. All
+three files import the same Flask app from `fundbot/wsgi.py`.
 
-No build env vars required when using the `/api` proxy. Optional override:
-
-| Variable / meta | Description |
-|-----------------|-------------|
-| `<meta name="api-base-url">` | Force a specific API base (e.g. direct Railway URL for debugging). |
+Because the page and the API share an origin, the browser never issues a
+cross-origin request in production.
 
 ---
 
-## Deploy backend (Railway)
+## Deploy
 
-1. Connect this repo to Railway (or `railway up` from CLI).
-2. Ensure the service uses the root `Dockerfile`.
-3. In **Variables**, set `OPENAI_API_KEY` (recommended).
-4. Deploy and verify:
+### Option A — Vercel CLI
 
 ```bash
-curl https://mffaqcb-production.up.railway.app/health
-# Expect: {"status":"ok","openai_configured":true,...}
+npm i -g vercel
+cd MF_FAQ_CB
+vercel            # first run links the project and deploys a preview
+vercel --prod     # promote to production
+```
 
-curl -X POST https://mffaqcb-production.up.railway.app/ask \
-  -H "Content-Type: application/json" \
-  -d '{"question":"What is the expense ratio of Mirae Asset Large Cap Fund?"}'
+### Option B — Git integration
+
+1. Push the repo to GitHub.
+2. At [vercel.com/new](https://vercel.com/new), import it.
+3. Framework preset: **Other**. Leave build command and output directory empty —
+   `public/` is detected automatically and `api/*.py` is built by the Python
+   runtime.
+4. Deploy. Every later push to the default branch redeploys.
+
+### Set the API key
+
+Vercel dashboard → your project → **Settings → Environment Variables**:
+
+| Name | Value | Environments |
+|---|---|---|
+| `OPENROUTER_API_KEY` | your key from [openrouter.ai/keys](https://openrouter.ai/keys) | Production, Preview, Development |
+
+Redeploy after adding it — environment variables are baked in at build time.
+
+> Skipping this is a supported configuration, not a broken one. Without a key
+> FundBot returns the retrieved passage verbatim. Retrieval, guardrails, citations
+> and confidence all behave identically; only the phrasing is less polished.
+
+Optional variables are listed in `.env.example` and in the README's
+configuration table.
+
+---
+
+## Verify a deployment
+
+```bash
+BASE=https://your-project.vercel.app
+
+# 1. Corpus loaded and key wired up
+curl -s $BASE/api/health
+# → {"status":"ok","corpus":{"documents":47,…},"llm":{"enabled":true,…}}
+
+# 2. A normal answer, with a citation
+curl -s -X POST $BASE/api/ask \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"What is the exit load for Mirae Asset Midcap Fund?"}'
+# → {"answer":"…","source":"https://www.miraeassetmf.co.in/…","kind":"answer",…}
+
+# 3. Advice is refused
+curl -s -X POST $BASE/api/ask -H 'Content-Type: application/json' \
+  -d '{"question":"should I invest in the ELSS fund"}'      # kind: refusal_advice
+
+# 4. Another fund house is out of scope
+curl -s -X POST $BASE/api/ask -H 'Content-Type: application/json' \
+  -d '{"question":"expense ratio of HDFC Top 100"}'         # kind: refusal_scope
+
+# 5. Personal data is refused
+curl -s -X POST $BASE/api/ask -H 'Content-Type: application/json' \
+  -d '{"question":"my PAN is ABCDE1234F"}'                  # kind: refusal_pii
+
+# 6. Off-topic is declined rather than guessed
+curl -s -X POST $BASE/api/ask -H 'Content-Type: application/json' \
+  -d '{"question":"how do I bake bread"}'                   # kind: no_answer
+```
+
+Checklist:
+
+- [ ] `/api/health` returns `status: ok` and a non-zero `corpus.documents`
+- [ ] `llm.enabled` is `true` if you set the key
+- [ ] A covered question returns `kind: "answer"` with a source URL
+- [ ] Each of the three refusal kinds fires on its example above
+- [ ] The page loads and a chat message round-trips with no console errors
+- [ ] The status dot in the chat header is green
+
+---
+
+## Local development
+
+```bash
+./run-local.sh              # API + frontend on :8000
+```
+
+If you prefer a separate static server (Live Server, `python -m http.server`),
+`public/config.js` detects the port mismatch and points the frontend at
+`http://localhost:8000/api` automatically. Set `ALLOWED_ORIGINS` to that static
+origin so CORS permits it:
+
+```bash
+ALLOWED_ORIGINS=http://localhost:5500 ./run-local.sh
+```
+
+To emulate the Vercel routing exactly:
+
+```bash
+vercel dev
 ```
 
 ---
 
-## Deploy frontend (Netlify)
+## Deploying somewhere other than Vercel
 
-1. Connect repo; **publish directory** = `.` (repo root).
-2. `netlify.toml` is picked up automatically (includes `/api/*` proxy).
-3. After deploy, verify proxy:
+The `Dockerfile` builds a self-contained image serving both the API and the
+frontend via gunicorn.
 
 ```bash
-curl -X POST https://mf-faq.netlify.app/api/ask \
-  -H "Content-Type: application/json" \
-  -d '{"question":"What is the minimum SIP for Mirae Asset ELSS Tax Saver Fund?"}'
+docker build -t fundbot .
+docker run -p 8000:8000 -e OPENROUTER_API_KEY=sk-or-v1-… fundbot
 ```
 
-4. Open `https://mf-faq.netlify.app` and send a chat message.
+Known-good free-tier targets for that image:
 
----
+| Host | Notes |
+|---|---|
+| **Hugging Face Spaces** | Free indefinitely, Docker SDK, no sleep. Set `PORT=7860` |
+| **Render** | Free web service; sleeps after 15 min idle, ~50 s cold start |
+| **Fly.io** | Free allowance suits it; requires a card on file |
 
-## Deployment verification checklist
-
-- [ ] `GET /health` on Railway returns `status: ok`
-- [ ] `openai_configured` is `true` if you set `OPENAI_API_KEY`
-- [ ] `POST /ask` on Railway returns `answer` + `source` (not 500)
-- [ ] `POST /api/ask` on Netlify returns the same (proxy works)
-- [ ] FundBot UI loads on Netlify without console CORS errors
-- [ ] Chat message returns an answer with a source link
-- [ ] Advice-style question returns refusal (no crash)
-- [ ] PII-style input returns privacy message
+The image does not include `api/`, `tests/` or `vercel.json` — see
+`.dockerignore`.
 
 ---
 
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
-|---------|-------|-----|
-| 500 on `/ask` with OpenAI auth error | Missing `OPENAI_API_KEY` on Railway (old deploy) | Redeploy with latest `server.py` (has fallback) **or** set the key |
-| CORS error in browser | Frontend calling Railway directly from Netlify | Use `/api` proxy; redeploy Netlify with updated `netlify.toml` |
-| "Cannot reach API" locally | Backend not running | `python server.py` on port 8000 |
-| Wrong port in docs | Old README said 5000 | Backend default is **8000** |
-| Netlify `503 usage_exceeded` | Netlify account bandwidth/build limits | Upgrade Netlify plan or use direct Railway URL in meta `api-base-url` temporarily |
-| Answers say "data not entered" | Placeholder `[FILL IN]` in JSON | Fill `Topic Detection Data.json` for that fund/topic |
+|---|---|---|
+| `/api/health` reports `status: degraded` with `corpus_error` | `data/` missing from the function bundle | Confirm `includeFiles` in `vercel.json` still reads `{fundbot/**,data/**}` |
+| Answers are correct but stiff and never rephrased | No API key, or the model call is failing | Check `llm.enabled` in `/api/health`; inspect Vercel function logs for `OpenRouter …` warnings |
+| `http_401` in the logs | Bad or unset `OPENROUTER_API_KEY` | Re-add the variable, then redeploy so it is picked up |
+| `http_429` in the logs | Free-tier rate limit reached | Answers still return, unrephrased. Wait, or set `OPENROUTER_MODEL` to another free model |
+| Function times out | LLM slower than the function limit | Lower `LLM_TIMEOUT_SECONDS` below `maxDuration` (30 s in `vercel.json`) |
+| A fund's numbers look stale | The corpus is point-in-time, not live | Edit `data/knowledge_base.json` and bump its `last_updated` |
+| CORS error in the browser | Frontend on a different origin from the API | Add that origin to `ALLOWED_ORIGINS`, or serve both from one Vercel project |
