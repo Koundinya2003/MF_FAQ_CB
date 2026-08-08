@@ -108,14 +108,31 @@ answers.
 
 ## Quick start
 
+**macOS / Linux / WSL / Git Bash:**
+
 ```bash
 git clone https://github.com/Koundinya2003/MF_FAQ_CB.git
 cd MF_FAQ_CB
 ./run-local.sh                    # http://localhost:8000
 ```
 
-That serves the API and the frontend from one process. The LLM is optional — the
-app works without a key, returning retrieved text unrephrased.
+`run-local.sh` creates the virtualenv and installs dependencies on first run, so
+that one command is the whole setup.
+
+**Windows (PowerShell)** — same thing, done by hand:
+
+```powershell
+git clone https://github.com/Koundinya2003/MF_FAQ_CB.git
+cd MF_FAQ_CB
+python -m venv .venv
+.venv\Scripts\pip install -r requirements-dev.txt
+.venv\Scripts\python -m fundbot.app        # http://localhost:8000
+```
+
+Either way the API and the frontend are served from one process. The LLM is
+optional — the app works without a key, returning retrieved text unrephrased.
+
+Requires Python 3.11 or newer (`python --version` to check).
 
 To enable rephrasing, get a free key at [openrouter.ai/keys](https://openrouter.ai/keys):
 
@@ -128,10 +145,11 @@ cp .env.example .env
 ### Tests
 
 ```bash
-pip install -r requirements-dev.txt
-pytest                      # 111 tests
-python scripts/evaluate.py  # retrieval quality gate
+.venv/bin/pytest                      # 111 tests
+.venv/bin/python scripts/evaluate.py  # retrieval quality gate
 ```
+
+On Windows use `.venv\Scripts\pytest` and `.venv\Scripts\python`.
 
 ---
 
