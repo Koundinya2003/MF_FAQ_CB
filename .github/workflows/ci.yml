@@ -1,0 +1,59 @@
+# Free on GitHub-hosted runners for public repositories.
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run tests
+        run: pytest
+
+      # Retrieval quality is a measurable property, so a regression in it should
+      # break the build exactly like a failing test. The script exits non-zero if
+      # accuracy, answer rate, off-topic rejection or scope handling drops below
+      # the floors declared at the top of it.
+      - name: Evaluate retrieval quality
+        run: python scripts/evaluate.py --verbose
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t fundbot:ci .
+
+      - name: Smoke test the container
+        run: |
+          docker run -d --name fundbot -p 8000:8000 -e FUNDBOT_DISABLE_LLM=1 fundbot:ci
+          for i in $(seq 1 20); do
+            if curl -fsS http://localhost:8000/health > /dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://localhost:8000/health
+          curl -fsS -X POST http://localhost:8000/ask \
+            -H 'Content-Type: application/json' \
+            -d '{"question":"what is the exit load for the midcap fund"}' \
+            | grep -q '"kind": *"answer"'
+          docker rm -f fundbot

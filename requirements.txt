@@ -1,4 +1,7 @@
+# Runtime dependencies — deliberately just one.
+#
+# Retrieval (BM25 + TF-IDF) is implemented on the standard library, and the
+# OpenRouter client uses urllib, so there is no numpy, scikit-learn, torch,
+# requests or OpenAI SDK anywhere in the deployed bundle. That is what keeps the
+# Vercel function small and its cold start in the tens of milliseconds.
 flask>=3.0,<4
-flask-cors>=4.0,<6
-openai>=1.0,<3
-gunicorn>=22,<27

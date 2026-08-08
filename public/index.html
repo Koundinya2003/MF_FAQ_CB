@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Optional override: content="https://your-backend.up.railway.app" -->
+  <meta name="description" content="FundBot — factual, sourced answers about Mirae Asset mutual fund schemes. No investment advice.">
+  <!-- Leave empty for same-origin /api. Set only when the API lives on another host. -->
   <meta name="api-base-url" content="">
   <title>FundBot | Mutual Fund FAQ</title>
-  <!-- Google Fonts -->
+  <!-- Inline so the browser's automatic /favicon.ico request never 404s. -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231D9E75'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='19' font-weight='bold' fill='white' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,16 +25,16 @@
             <span>FUNDBOT</span>
           </div>
           <div class="nav-links">
-            <span>About</span>
-            <span>Source</span>
-            <span>Disclaimer</span>
+            <span data-modal="about" role="button" tabindex="0">About</span>
+            <span data-modal="source" role="button" tabindex="0">Source</span>
+            <span data-modal="disclaimer" role="button" tabindex="0">Disclaimer</span>
           </div>
         </header>
         <div class="hero">
-          <small>Facts only . No Investment Advice</small>
+          <small>Facts only · No investment advice</small>
           <div class="hero-card">
             <h1>Your mutual fund questions, answered simply</h1>
-            <p>Ask about expense ratios, SIP minimums, exit loads, lock-in periods, and more — powered by official AMC and AMFI data.</p>
+            <p>Ask about expense ratios, SIP minimums, exit loads, lock-in periods, and more — every answer retrieved from official AMC and AMFI data, with the source linked.</p>
           </div>
           <button class="button-outline" id="start-to-instructions" type="button">
             <span>💬</span>
@@ -41,7 +42,7 @@
           </button>
           <div class="trust-strip">
             <div>
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect x="5" y="7" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
                 <path d="M8 7v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 <path d="M12 7v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -50,16 +51,16 @@
               <strong>Mirae Asset Funds</strong>
             </div>
             <div>
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect x="4" y="5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
                 <path d="M7 9h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 <path d="M7 13h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 <path d="M7 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
-              <strong>Official Source Only</strong>
+              <strong>Official Sources Only</strong>
             </div>
             <div>
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect x="7" y="11" width="10" height="7" rx="2" stroke="currentColor" stroke-width="1.8"/>
                 <path d="M9 11V8a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 <path d="M10 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -68,7 +69,7 @@
             </div>
           </div>
           <div class="feature-strip">
-            <div data-question="What is the expense ratio of Mirae Asset Large Cap Fund?">
+            <div data-question="What is the expense ratio of Mirae Asset Large Cap Fund?" role="button" tabindex="0">
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor"/>
@@ -77,9 +78,9 @@
                 </svg>
               </div>
               <h3>Expense ratio</h3>
-              <p>Find the annual cost of any Mirae Asset fund</p>
+              <p>Find the annual cost of any covered Mirae Asset fund</p>
             </div>
-            <div data-question="What is the exit load for Mirae Asset Large Cap Fund?">
+            <div data-question="What is the exit load for Mirae Asset Large Cap Fund?" role="button" tabindex="0">
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 8h10" stroke="currentColor" stroke-linecap="round"/>
@@ -90,7 +91,7 @@
               <h3>Exit load</h3>
               <p>Know the redemption charges before you exit</p>
             </div>
-            <div data-question="What is the minimum SIP amount for Mirae Asset ELSS Tax Saver Fund?">
+            <div data-question="What is the minimum SIP amount for Mirae Asset ELSS Tax Saver Fund?" role="button" tabindex="0">
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="5" y="6" width="14" height="12" rx="2" stroke="currentColor"/>
@@ -101,7 +102,7 @@
               <h3>SIP details</h3>
               <p>Minimum amounts and frequency options</p>
             </div>
-            <div data-question="What is the lock-in period for Mirae Asset ELSS Tax Saver Fund?">
+            <div data-question="What is the lock-in period for Mirae Asset ELSS Tax Saver Fund?" role="button" tabindex="0">
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="6" y="11" width="12" height="8" rx="2" stroke="currentColor"/>
@@ -133,53 +134,52 @@
             <hr class="sidebar-divider">
             <div class="sidebar-section">
               <label>Covered Funds</label>
-
               <div class="fund-row">
                 <div class="fund-row-dot"></div>
                 <span class="fund-row-text">Large Cap Fund</span>
               </div>
-
               <div class="fund-row">
                 <div class="fund-row-dot"></div>
                 <span class="fund-row-text">Flexi Cap Fund</span>
               </div>
-
               <div class="fund-row">
                 <div class="fund-row-dot"></div>
                 <span class="fund-row-text">ELSS Tax Saver</span>
               </div>
-
               <div class="fund-row">
                 <div class="fund-row-dot"></div>
                 <span class="fund-row-text">Midcap Fund</span>
               </div>
-
+            </div>
+            <!-- The navbar belongs to the welcome page, which is hidden once the
+                 chat opens. Without these the disclaimer would be unreachable
+                 from the screen where answers are actually given. -->
+            <div class="sidebar-footer">
+              <span data-modal="about" role="button" tabindex="0">About</span>
+              <span data-modal="source" role="button" tabindex="0">Sources</span>
+              <span data-modal="disclaimer" role="button" tabindex="0">Disclaimer</span>
             </div>
           </aside>
           <section class="chat-panel">
             <div class="chat-topbar">
               <div class="status-group">
-                <span class="status-dot"></span>
+                <span class="status-dot" id="status-dot"></span>
                 <div class="status-copy">
                   <h3>FundBot</h3>
-                  <p>Mirae Asset FAQ assistant</p>
+                  <p id="status-text">Mirae Asset FAQ assistant</p>
                 </div>
               </div>
               <div class="badge-pill">Mirae Asset · 4 funds</div>
             </div>
-            <div class="chat-window" id="chat-window">
-              <div class="message-card welcome-card">
-                <p><strong>👋 Welcome to FundBot</strong></p>
-                <p>Ask me factual questions about Mirae Asset funds — expense ratios, SIP minimums, exit loads, lock-in periods, and more. Every answer includes a source citation.</p>
-              </div>
-            </div>
+            <div class="chat-window" id="chat-window" role="log" aria-live="polite" aria-label="Conversation"></div>
             <div class="chat-input-bar">
               <div class="chat-input-wrap">
-                <input id="chat-input" class="chat-input" type="text" placeholder="Ask Here" autocomplete="off">
-                <span class="input-action" id="send-action">➜</span>
+                <label class="visually-hidden" for="chat-input">Ask a question</label>
+                <input id="chat-input" class="chat-input" type="text" placeholder="Ask about expense ratios, SIP minimums, exit loads…" autocomplete="off">
+                <span class="input-action" id="send-action" role="button" tabindex="0" aria-label="Send">➜</span>
               </div>
-              <button class="mic-button" type="button" aria-label="Microphone icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <button class="mic-button" id="mic-button" type="button" hidden aria-label="Dictate a question">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M19 11a7 7 0 0 1-14 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
                   <path d="M12 19v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
@@ -193,10 +193,6 @@
     </section>
   </main>
 
-  <!-- JavaScript: config must load before script.js -->
-  <script src="config.js"></script>
-  <script src="script.js"></script>
-
   <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true">
     <div id="modal-about" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-about-title">
       <div class="modal-header">
@@ -205,8 +201,9 @@
       </div>
       <div class="modal-body">
         <h3 class="modal-section-heading">What is FundBot</h3>
-        <p>FundBot is a facts-only FAQ assistant for Mirae Asset mutual fund schemes. It is built as part of the LIP Challenge — Mutual Fund FAQs milestone.</p>
-        <p>It helps first-time investors find clear, sourced answers to common questions about mutual funds — without jargon, opinions, or investment advice.</p>
+        <p>FundBot is a facts-only FAQ assistant for Mirae Asset mutual fund schemes. It helps first-time investors find clear, sourced answers to common questions — without jargon, opinions, or investment advice.</p>
+        <h3 class="modal-section-heading">How it answers</h3>
+        <p>Each question is matched against a curated knowledge base using hybrid BM25 and TF-IDF retrieval. The best-matching passage is then rephrased by a language model that is instructed to use only that passage. If retrieval is not confident enough, FundBot says it does not know rather than guessing.</p>
         <h3 class="modal-section-heading">What it covers</h3>
         <ul class="modal-list modal-list-green">
           <li>Mirae Asset Large Cap Fund</li>
@@ -221,8 +218,6 @@
           <li>Predict or display returns</li>
           <li>Collect any personal information</li>
         </ul>
-        <h3 class="modal-section-heading">Built by</h3>
-        <p>Aditya Koundinya · LIP Challenge · May 2026</p>
       </div>
     </div>
 
@@ -236,26 +231,23 @@
         <div class="modal-source-table-wrap">
           <table class="modal-source-table">
             <thead>
-              <tr>
-                <th>Source</th>
-                <th>Type</th>
-              </tr>
+              <tr><th>Source</th><th>Type</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td><a href="https://www.miraeassetmf.co.in/mutual-funds/equity/mirae-asset-large-cap-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — Large Cap Fund</a></td>
+                <td><a href="https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-large-cap-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — Large Cap Fund</a></td>
                 <td><span class="modal-pill">Scheme Page</span></td>
               </tr>
               <tr>
-                <td><a href="https://www.miraeassetmf.co.in/mutual-funds/equity/mirae-asset-flexi-cap-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — Flexi Cap Fund</a></td>
+                <td><a href="https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-flexi-cap-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — Flexi Cap Fund</a></td>
                 <td><span class="modal-pill">Scheme Page</span></td>
               </tr>
               <tr>
-                <td><a href="https://www.miraeassetmf.co.in/mutual-funds/equity/mirae-asset-elss-tax-saver-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — ELSS Tax Saver Fund</a></td>
+                <td><a href="https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-elss-tax-saver-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — ELSS Tax Saver Fund</a></td>
                 <td><span class="modal-pill">Scheme Page</span></td>
               </tr>
               <tr>
-                <td><a href="https://www.miraeassetmf.co.in/mutual-funds/equity/mirae-asset-midcap-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — Midcap Fund</a></td>
+                <td><a href="https://www.miraeassetmf.co.in/mutual-fund-scheme/equity-fund/mirae-asset-midcap-fund" target="_blank" rel="noopener noreferrer">Mirae Asset — Midcap Fund</a></td>
                 <td><span class="modal-pill">Scheme Page</span></td>
               </tr>
               <tr>
@@ -263,11 +255,7 @@
                 <td><span class="modal-pill">Investor Education</span></td>
               </tr>
               <tr>
-                <td><a href="https://www.amfiindia.com/research-information/total-expense-ratio" target="_blank" rel="noopener noreferrer">AMFI — Total Expense Ratio Data</a></td>
-                <td><span class="modal-pill">TER Data</span></td>
-              </tr>
-              <tr>
-                <td><a href="https://www.amfiindia.com/research-information/other-data/riskometer" target="_blank" rel="noopener noreferrer">AMFI — Riskometer Guidelines</a></td>
+                <td><a href="https://www.amfiindia.com/research-information/other-data/riskometer" target="_blank" rel="noopener noreferrer">AMFI — Riskometer</a></td>
                 <td><span class="modal-pill">Riskometer</span></td>
               </tr>
               <tr>
@@ -277,10 +265,6 @@
               <tr>
                 <td><a href="https://www.kfintech.com/investor" target="_blank" rel="noopener noreferrer">KFintech — Investor Portal</a></td>
                 <td><span class="modal-pill">Statement</span></td>
-              </tr>
-              <tr>
-                <td><a href="https://www.sebi.gov.in/legal/circulars" target="_blank" rel="noopener noreferrer">SEBI — Regulatory Circulars</a></td>
-                <td><span class="modal-pill">Regulatory</span></td>
               </tr>
             </tbody>
           </table>
@@ -297,18 +281,21 @@
       <div class="modal-body">
         <div class="modal-disclaimer-banner">This tool provides factual information only. It is not a financial advisory service.</div>
         <h3 class="modal-section-heading">No investment advice</h3>
-        <p>FundBot is an informational tool only. Nothing on this platform constitutes investment advice, a recommendation to buy or sell, or a solicitation of any investment product. Always consult a SEBI-registered investment advisor before making financial decisions.</p>
+        <p>FundBot is an informational tool only. Nothing here constitutes investment advice, a recommendation to buy or sell, or a solicitation of any investment product. Always consult a SEBI-registered investment adviser before making financial decisions.</p>
         <h3 class="modal-section-heading">Data accuracy</h3>
-        <p>All information is sourced from official AMC, AMFI, and SEBI public pages. Data reflects the state of sources at the time of last update and may not reflect real-time changes. Verify all figures directly with the AMC before acting on them.</p>
+        <p>All information is sourced from official AMC, AMFI, and SEBI public pages. Data reflects the state of those sources at the time of the last knowledge base update and may not reflect real-time changes. Verify all figures directly with the AMC before acting on them.</p>
         <h3 class="modal-section-heading">No PII collected</h3>
         <p>FundBot does not collect, store, or process any personally identifiable information including PAN, Aadhaar, email addresses, phone numbers, or bank account details.</p>
         <h3 class="modal-section-heading">External links</h3>
-        <p>Source links provided in answers lead to third-party websites. FundBot is not responsible for the content, accuracy, or availability of those external pages.</p>
+        <p>Source links in answers lead to third-party websites. FundBot is not responsible for the content, accuracy, or availability of those pages.</p>
         <h3 class="modal-section-heading">Regulatory</h3>
         <p>Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.</p>
         <button type="button" class="modal-action-button">I Understand</button>
       </div>
     </div>
   </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
