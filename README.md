@@ -1,5 +1,7 @@
 # FundBot
 
+Live @ https://mf-faq-cbmark1.vercel.app/
+
 A facts-only FAQ assistant for Mirae Asset mutual fund schemes. Ask about expense
 ratios, exit loads, SIP and lump sum minimums, benchmarks, riskometer levels or
 ELSS lock-in, and get a short answer with the official source linked.
