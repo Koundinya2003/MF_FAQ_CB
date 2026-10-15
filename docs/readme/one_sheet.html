@@ -1,0 +1,402 @@
+<title>FundBot one sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700;125,800;125,900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Identity: a fund factsheet desk. Cool ledger paper, teal ink, a gold citation mark,
+   the SEBI riskometer as the recurring motif. */
+:root {
+  --paper: #eef2f1;
+  --sheet: #fbfdfc;
+  --ink: #0f2420;
+  --muted: #566a65;
+  --rule: #c3d0cc;
+  --teal: #0d6b5b;
+  --teal-soft: #d4e8e2;
+  --gold: #b97a08;
+  --gold-soft: #f6e6c2;
+  --risk: #b3362b;
+  --display: "Archivo", "Arial Black", sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0a1513; --sheet: #0f1d1a; --ink: #e2ede9; --muted: #93aaa3; --rule: #284039;
+    --teal: #4cc3a8; --teal-soft: #143a32; --gold: #f2b84b; --gold-soft: #3a2c10; --risk: #f0756a;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0a1513; --sheet: #0f1d1a; --ink: #e2ede9; --muted: #93aaa3; --rule: #284039;
+  --teal: #4cc3a8; --teal-soft: #143a32; --gold: #f2b84b; --gold-soft: #3a2c10; --risk: #f0756a;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.45;
+  margin: 0;
+}
+.sheet { width: 960px; margin: 0 auto; padding: 12px 20px; display: grid; gap: 0; }
+.sheet > section { padding: 22px 26px 24px; background: var(--sheet); border: 1px solid var(--rule); border-left: 6px solid var(--teal); }
+h1, h2, h3 { font-family: var(--display); font-variation-settings: "wdth" 125; margin: 0; }
+h2 { font-size: 25px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.05; }
+p { margin: 0; }
+.mono { font-family: var(--mono); }
+.label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 16px; }
+.head .no { font-family: var(--mono); font-size: 12px; color: var(--teal); font-weight: 600; }
+
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: 1.08fr 1fr; gap: 26px; }
+.hero .strip { grid-column: 1 / -1; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
+.hero .strip b { color: var(--teal); font-weight: 600; }
+h1 { font-size: 72px; font-weight: 900; line-height: 0.92; letter-spacing: -0.03em; margin-top: 6px; }
+h1 span { color: var(--teal); }
+.tag { font-size: 19px; line-height: 1.35; margin-top: 12px; max-width: 30ch; }
+.promise { margin-top: 18px; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; border-top: 1px solid var(--rule); padding-top: 14px; }
+.promise .seal { width: 58px; height: 58px; border-radius: 50%; border: 2px solid var(--gold); color: var(--gold); display: grid; place-items: center; font-family: var(--mono); font-size: 9.5px; font-weight: 600; text-align: center; line-height: 1.1; letter-spacing: 0.06em; transform: rotate(-8deg); }
+.promise p { font-size: 14px; color: var(--muted); }
+.promise strong { color: var(--ink); font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 800; font-size: 15px; display: block; }
+.live { margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--teal); }
+
+.chat { background: var(--paper); border: 1px solid var(--rule); padding: 14px; display: grid; gap: 10px; align-content: start; min-height: 300px; position: relative; }
+.chat .bar { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10.5px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.chat .bar i { font-style: normal; color: var(--teal); }
+.q { justify-self: end; background: var(--ink); color: var(--sheet); padding: 9px 13px; font-size: 14px; max-width: 80%; animation: q 9s ease-in-out infinite; }
+.dots { display: flex; gap: 5px; padding: 6px 2px; height: 22px; animation: typing 9s linear infinite; }
+.dots b { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: bob 0.9s ease-in-out infinite; }
+.dots b:nth-child(2) { animation-delay: 0.15s; } .dots b:nth-child(3) { animation-delay: 0.3s; }
+.a { background: var(--sheet); border: 1px solid var(--rule); border-left: 3px solid var(--teal); padding: 10px 13px; font-size: 14px; animation: ans 9s ease-out infinite; }
+.a .fig { background: var(--gold-soft); padding: 0 3px; font-weight: 600; }
+.cite { display: inline-flex; gap: 8px; align-items: center; margin-top: 8px; font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px dashed var(--gold); padding: 3px 8px; animation: cite 9s ease-out infinite; }
+.cite b { color: var(--gold); font-weight: 600; }
+.kind { font-family: var(--mono); font-size: 10.5px; color: var(--muted); display: flex; gap: 14px; animation: ans 9s ease-out infinite; }
+.kind span b { color: var(--teal); }
+@keyframes q { 0%, 3% { opacity: 0; transform: translateY(8px); } 9%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+@keyframes typing { 0%, 12% { opacity: 0; } 14%, 30% { opacity: 1; } 32%, 100% { opacity: 0; } }
+@keyframes bob { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-4px); opacity: 1; } }
+@keyframes ans { 0%, 31% { opacity: 0; transform: translateY(6px); } 37%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+@keyframes cite { 0%, 42% { opacity: 0; transform: scale(1.4); } 47% { opacity: 1; transform: scale(0.95); } 50%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+
+.schemes { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
+.schemes div { padding: 9px 12px 2px 0; border-right: 1px solid var(--rule); margin-right: 12px; }
+.schemes div:last-child { border-right: 0; }
+.schemes b { font-family: var(--display); font-variation-settings: "wdth" 125; font-size: 14px; font-weight: 800; display: block; }
+.schemes span { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+/* ---------- entrance helpers ---------- */
+.rise { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.d1 { animation-delay: 0.15s; } .d2 { animation-delay: 0.35s; } .d3 { animation-delay: 0.55s; } .d4 { animation-delay: 0.75s; } .d5 { animation-delay: 0.95s; } .d6 { animation-delay: 1.15s; }
+
+/* ---------- pipeline ---------- */
+.verbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 20px; }
+.verbs div { padding: 0 14px 0 0; border-left: 1px solid var(--rule); padding-left: 12px; }
+.verbs div:first-child { border-left: 0; padding-left: 0; }
+.verbs b { font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 800; font-size: 17px; color: var(--teal); display: block; }
+.verbs div:nth-child(2) b { color: var(--risk); } .verbs div:nth-child(3) b { color: var(--muted); } .verbs div:nth-child(4) b { color: var(--gold); }
+.verbs p { font-size: 13.5px; margin-top: 3px; }
+.flow { display: grid; grid-template-columns: 118px 1fr 1fr 1fr 118px; gap: 0; align-items: stretch; position: relative; }
+.node { padding: 12px 12px 12px; border: 1.5px solid var(--ink); background: var(--sheet); margin-right: 18px; position: relative; animation: wipe 0.8s cubic-bezier(.3,.7,.2,1) both; }
+.node:last-child { margin-right: 0; }
+.node::after { content: ""; position: absolute; right: -19px; top: 34px; width: 18px; height: 2px; background: var(--ink); }
+.node:last-child::after { display: none; }
+.node .step { font-family: var(--mono); font-size: 10.5px; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; }
+.node h3 { font-size: 16px; font-weight: 800; margin: 3px 0 5px; }
+.node p { font-size: 12.5px; color: var(--muted); line-height: 1.38; }
+.node .file { font-family: var(--mono); font-size: 10.5px; color: var(--ink); margin-top: 6px; display: block; }
+.node.ends { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
+.node.ends p { color: var(--sheet); opacity: 0.8; }
+.node.ends .step { color: var(--gold); }
+.exits { display: grid; grid-template-columns: 118px 1fr 1fr 1fr 118px; margin-top: 0; }
+.exit { margin-right: 18px; border-left: 1.5px dashed var(--risk); margin-left: 20px; padding: 10px 0 0 10px; font-size: 12px; color: var(--muted); animation: drop 0.6s ease-out both; }
+.exit b { font-family: var(--mono); font-size: 10.5px; display: block; color: var(--risk); letter-spacing: 0.06em; text-transform: uppercase; }
+.exit.soft { border-color: var(--gold); } .exit.soft b { color: var(--gold); }
+@keyframes wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes drop { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+.rule-line { margin-top: 18px; padding: 12px 16px; background: var(--teal-soft); display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
+.rule-line strong { font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 900; font-size: 19px; color: var(--teal); }
+.rule-line p { font-size: 13.5px; }
+
+/* ---------- retrieval ---------- */
+.two { display: grid; grid-template-columns: 1fr 1.15fr; gap: 30px; }
+.weights { display: grid; gap: 7px; margin-top: 10px; }
+.w { display: grid; grid-template-columns: 92px 1fr 34px; gap: 10px; align-items: center; font-family: var(--mono); font-size: 12px; }
+.w .track { height: 14px; background: var(--paper); border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.w .fill { position: absolute; inset: 0 auto 0 0; background: var(--teal); transform-origin: left; animation: grow 0.9s cubic-bezier(.2,.8,.2,1) both; }
+.w b { color: var(--teal); text-align: right; }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.small { font-size: 13px; color: var(--muted); margin-top: 10px; }
+.small b { color: var(--ink); font-weight: 600; }
+.line { margin-top: 10px; }
+.line svg { width: 100%; height: auto; display: block; overflow: visible; }
+.line text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.line .ax { stroke: var(--ink); stroke-width: 1.5; }
+.line .tick { stroke: var(--rule); }
+.line .floor { stroke: var(--teal); stroke-width: 2.5; }
+.line .floor-t { fill: var(--teal); font-weight: 600; }
+.line .bad { fill: var(--risk); }
+.line .bad-t { fill: var(--risk); font-weight: 600; }
+.line .ok { fill: var(--gold); }
+.line .ok-t { fill: var(--gold); font-weight: 600; }
+.pop { animation: pop 0.5s cubic-bezier(.3,1.6,.5,1) both; transform-box: fill-box; transform-origin: center; }
+@keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.callout { margin-top: 12px; border-left: 3px solid var(--risk); padding-left: 12px; font-size: 13.5px; }
+.callout em { font-style: italic; }
+
+/* ---------- quality ---------- */
+.q-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; }
+.bars { display: grid; gap: 12px; }
+.bar { display: grid; grid-template-columns: 150px 1fr 70px; gap: 12px; align-items: center; }
+.bar .name { font-size: 13.5px; font-weight: 500; }
+.bar .name small { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--muted); font-weight: 400; }
+.bar .track { height: 22px; background: var(--paper); border: 1px solid var(--rule); position: relative; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--teal); transform-origin: left; animation: grow 1.1s cubic-bezier(.2,.8,.2,1) both; }
+.bar .floor { position: absolute; top: -5px; bottom: -5px; width: 2px; background: var(--gold); animation: rise 0.4s ease-out both; animation-delay: 1.4s; }
+.bar .val { font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 900; font-size: 20px; text-align: right; }
+.legend { display: flex; gap: 18px; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 12px; }
+.legend i { display: inline-block; width: 12px; height: 10px; background: var(--teal); margin-right: 6px; vertical-align: 0; }
+.legend i.g { width: 2px; height: 12px; background: var(--gold); }
+.facts { display: grid; gap: 0; align-content: start; }
+.fact { border-top: 1px solid var(--rule); padding: 10px 0; display: grid; grid-template-columns: 80px 1fr; gap: 12px; align-items: baseline; }
+.fact b { font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 900; font-size: 30px; line-height: 1; color: var(--teal); }
+.fact span { font-size: 13px; color: var(--muted); }
+.gate { margin-top: 6px; font-family: var(--mono); font-size: 11.5px; background: var(--teal-soft); color: var(--ink); border-left: 3px solid var(--teal); padding: 10px 12px; }
+.gate span { color: var(--muted); }
+
+/* ---------- coverage ---------- */
+.cov { display: grid; grid-template-columns: 250px 1fr; gap: 26px; }
+.gauge svg { width: 100%; height: auto; display: block; }
+.gauge text { font-family: var(--mono); font-size: 9.5px; fill: var(--muted); }
+.gauge .vh { fill: var(--risk); font-weight: 600; font-size: 11px; }
+.needle { transform-origin: 125px 125px; animation: swing 1.8s cubic-bezier(.3,1.4,.5,1) both; animation-delay: 0.3s; }
+@keyframes swing { from { transform: rotate(-165deg); } to { transform: rotate(0deg); } }
+.gauge p { font-size: 12.5px; color: var(--muted); margin-top: 6px; text-align: left; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 2px solid var(--ink); }
+.card { padding: 11px 14px 12px 0; border-bottom: 1px solid var(--rule); }
+.card:nth-child(odd) { border-right: 1px solid var(--rule); margin-right: 14px; }
+.card h3 { font-size: 15px; font-weight: 800; }
+.card dl { display: grid; grid-template-columns: 82px 1fr; gap: 2px 8px; margin: 6px 0 0; font-size: 12.5px; }
+.card dt { font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px; }
+.card dd { margin: 0; }
+.card dd.r { color: var(--risk); font-weight: 600; }
+.general { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.general .label { margin-right: 6px; }
+.chip { font-family: var(--mono); font-size: 11px; padding: 3px 8px; border: 1px solid var(--rule); background: var(--paper); animation: pop 0.4s cubic-bezier(.3,1.6,.5,1) both; }
+
+/* ---------- stack ---------- */
+.stack { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.stack ul { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 0; }
+.stack li { border-top: 1px solid var(--rule); padding: 8px 0; display: grid; grid-template-columns: 112px 1fr; gap: 10px; font-size: 13.5px; }
+.stack li b { font-family: var(--mono); font-size: 11.5px; color: var(--teal); font-weight: 600; padding-top: 1px; }
+.stack .lim li b { color: var(--risk); }
+.disc { margin-top: 18px; border: 1.5px solid var(--ink); padding: 12px 16px; font-size: 12.5px; color: var(--muted); display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
+.disc b { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ink); text-transform: uppercase; }
+
+/* ---------- responsive ---------- */
+</style>
+
+<main class="sheet">
+
+<section data-panel="01_hero" data-alt="FundBot. A facts only FAQ assistant for four Mirae Asset mutual fund schemes. Ask about expense ratios, exit loads, SIP and lump sum minimums, benchmarks, riskometer levels or ELSS lock in, and get a short answer with the official source linked. The model never supplies a fact: it only rewrites a passage retrieval already chose, and if it fails the passage is returned as is. Example: asked for the exit load of Mirae Asset Large Cap Fund, FundBot answers that it is 1% if units are redeemed within 365 days of allotment, and none after that, citing miraeassetmf.co.in as read in June 2025. Schemes covered: Large Cap Fund (NIFTY 100 TRI), Flexi Cap Fund (Nifty 500 TRI), ELSS Tax Saver Fund (NIFTY 500 TRI), Midcap Fund (NIFTY Midcap 150 TRI). Live at mf-faq-cbmark1.vercel.app.">
+  <div class="hero">
+    <div class="strip"><span>Scheme FAQ desk</span><span><b>47</b> curated documents · <b>4</b> schemes · sources as of June 2025</span></div>
+    <div>
+      <div class="label">Mirae Asset mutual fund FAQ assistant</div>
+      <h1>Fund<span>Bot</span></h1>
+      <p class="tag">Ask a factual question about a fund. Get a short answer with the official source linked, or an honest refusal.</p>
+      <div class="promise">
+        <div class="seal">FACTS<br>ONLY</div>
+        <p><strong>The model never supplies a fact.</strong>It only rewrites a passage retrieval already chose. If it fails, the passage is returned as is.</p>
+      </div>
+      <div class="live">live ▸ mf-faq-cbmark1.vercel.app</div>
+    </div>
+    <div class="chat">
+      <div class="bar"><span>POST /api/ask</span><i>● online</i></div>
+      <div class="q">What is the exit load of the large cap fund?</div>
+      <div class="dots"><b></b><b></b><b></b></div>
+      <div class="a">Mirae Asset Large Cap Fund charges an exit load of <span class="fig">1%</span> if units are redeemed within <span class="fig">365 days</span> from the date of allotment. No exit load applies after 365 days.
+        <div class="cite"><b>SOURCE</b> miraeassetmf.co.in · June 2025</div>
+      </div>
+      <div class="kind"><span>kind: <b>answer</b></span><span>fund: <b>large_cap</b></span><span>topic: <b>exit_load</b></span></div>
+    </div>
+    <div class="schemes">
+      <div><b>Large Cap</b><span>NIFTY 100 TRI</span></div>
+      <div><b>Flexi Cap</b><span>Nifty 500 TRI</span></div>
+      <div><b>ELSS Tax Saver</b><span>NIFTY 500 TRI</span></div>
+      <div><b>Midcap</b><span>NIFTY Midcap 150 TRI</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-panel="02_pipeline" data-alt="How it works. FundBot answers factual questions about 4 Mirae Asset schemes and general mutual fund concepts; refuses investment advice, personal identifiers and schemes from other fund houses; declines anything retrieval is not confident about, saying so rather than guessing; and cites the source URL and the date it was last read on every answer. A question goes through three stages. One, guardrails (fundbot/guards.py): personal data, then scope, then advice; a blocked question never reaches the knowledge base or the model. Two, retrieval (fundbot/retrieval.py): hybrid BM25F and TF IDF over 47 curated documents; below a confidence of 0.06 FundBot says it does not know. Three, generation (fundbot/llm.py): DeepSeek through OpenRouter rephrases the retrieved passage; it is optional, and any failure falls back to the passage verbatim. The browser then renders the answer with its source link. Answers can get less conversational; they never get less correct.">
+  <div class="head"><h2>One question, three gates</h2><span class="no">02 · HOW IT WORKS</span></div>
+  <div class="verbs">
+    <div class="rise d1"><b>Answers</b><p>Factual questions on 4 Mirae Asset schemes and general fund concepts.</p></div>
+    <div class="rise d2"><b>Refuses</b><p>Investment advice, personal identifiers, other fund houses.</p></div>
+    <div class="rise d3"><b>Declines</b><p>Anything retrieval is unsure of. It says so instead of guessing.</p></div>
+    <div class="rise d4"><b>Cites</b><p>Every answer carries its source URL and the date it was read.</p></div>
+  </div>
+  <div class="flow">
+    <div class="node ends d1"><span class="step">question</span><h3>Ask</h3><p>POST /api/ask from the browser</p></div>
+    <div class="node d2"><span class="step">1 · guardrails</span><h3>PII, scope, advice</h3><p>A blocked question never reaches the knowledge base or the model.</p><span class="file">fundbot/guards.py</span></div>
+    <div class="node d3"><span class="step">2 · retrieval</span><h3>BM25F + TF IDF</h3><p>Hybrid scoring over 47 curated documents, with fund affinity.</p><span class="file">fundbot/retrieval.py</span></div>
+    <div class="node d4"><span class="step">3 · generation</span><h3>DeepSeek rephrase</h3><p>Via OpenRouter, optional. Rewrites the passage, adds no numbers.</p><span class="file">fundbot/llm.py</span></div>
+    <div class="node ends d5"><span class="step">answer</span><h3>Reply</h3><p>with source link and date</p></div>
+  </div>
+  <div class="exits">
+    <div></div>
+    <div class="exit d4"><b>refused</b>Polite refusal, pointer to a SEBI registered adviser or AMFI</div>
+    <div class="exit soft d5"><b>below 0.06</b>"I don't know" instead of a guess</div>
+    <div class="exit soft d6"><b>key missing or timeout</b>Retrieved passage returned verbatim</div>
+    <div></div>
+  </div>
+  <div class="rule-line rise d6"><strong>Less chatty, never less correct.</strong><p>If the key is missing, the quota is exhausted or the request times out, FundBot falls back to the retrieved text. The app works with no LLM at all.</p></div>
+</section>
+
+<section data-panel="03_retrieval" data-alt="Retrieval without embeddings. BM25F lite drives ranking, with field weights folded into term frequencies: title 3, questions 3, keywords 2, fund names 2, text 1, and adjacent word bigrams indexed alongside single words. TF IDF cosine multiplied by IDF coverage produces the confidence score. Cosine alone was fooled: 'what is the capital of Mongolia' matched the capital gains document at 0.29. Coverage asks what share of the question's IDF mass the document accounts for and charges unseen words at maximum IDF, pushing such questions below the floor. The answer floor is 0.06, chosen because the hardest off topic question peaks at 0.052. A fund affinity pass boosts the scheme named in the question, so the midcap exit load cannot be answered with the large cap figure. Embeddings were skipped because sentence transformers pulls in about 2 GB of torch, which does not fit a free serverless tier.">
+  <div class="head"><h2>Retrieval that knows when it does not know</h2><span class="no">03 · RETRIEVAL</span></div>
+  <div class="two">
+    <div>
+      <div class="label">BM25F lite · field weights</div>
+      <div class="weights">
+        <div class="w"><span>title</span><div class="track"><div class="fill d1" style="width:100%"></div></div><b>×3</b></div>
+        <div class="w"><span>questions</span><div class="track"><div class="fill d2" style="width:100%"></div></div><b>×3</b></div>
+        <div class="w"><span>keywords</span><div class="track"><div class="fill d3" style="width:66.6%"></div></div><b>×2</b></div>
+        <div class="w"><span>fund_names</span><div class="track"><div class="fill d4" style="width:66.6%"></div></div><b>×2</b></div>
+        <div class="w"><span>text</span><div class="track"><div class="fill d5" style="width:33.3%"></div></div><b>×1</b></div>
+      </div>
+      <p class="small">Weights fold into term frequencies before scoring. <b>Bigrams</b> are indexed next to single words. <b>Fund affinity</b> boosts the scheme the question names and suppresses the other three, so a midcap question never gets the large cap figure.</p>
+      <p class="small"><b>Why no embeddings?</b> sentence transformers pulls in about 2 GB of torch. That does not fit a free serverless tier, and cold starts would take tens of seconds.</p>
+    </div>
+    <div>
+      <div class="label">Confidence = TF IDF cosine × IDF coverage</div>
+      <div class="line">
+        <svg viewBox="0 0 440 150" role="presentation">
+          <g id="ticks"></g>
+          <line class="ax" x1="20" y1="84" x2="420" y2="84"/>
+          <line class="floor" x1="100" y1="22" x2="100" y2="100"/>
+          <text class="floor-t" x="106" y="30">answer floor 0.06</text>
+          <circle class="ok pop d3" cx="89.3" cy="84" r="7"/>
+          <text class="ok-t" x="30" y="124">hardest off topic</text>
+          <text class="ok-t" x="30" y="138">question: 0.052</text>
+          <circle class="bad pop d5" cx="406.7" cy="84" r="7"/>
+          <text class="bad-t" x="300" y="58">cosine alone: 0.29</text>
+        </svg>
+      </div>
+      <div class="callout rise d5"><em>"What is the capital of Mongolia"</em> matched the capital gains document at <b>0.29</b> on cosine alone. Coverage asks how much of the question's IDF mass a document explains, and charges unseen words like <em>Mongolia</em> at maximum IDF. That pushes them under the floor.</div>
+      <p class="small">0.06 was picked from a sweep: it answers 97.6% of real questions with zero false answers.</p>
+    </div>
+  </div>
+</section>
+
+<section data-panel="04_quality" data-alt="Measured quality. scripts/evaluate.py scores retrieval against 41 hand labelled paraphrases (none copied from the knowledge base), 12 off topic questions and 5 competitor fund house questions. Top 1 accuracy 92.7% (38 of 41) against a floor of 85%. Top 3 accuracy 100% (41 of 41), floor 95%. Answered above the confidence floor 97.6% (40 of 41), floor 90%. Off topic rejected 100% (12 of 12), floor 100%. Competitor questions scoped 100% (5 of 5), floor 100%. The script exits non zero when any floor is breached, and CI runs it on every push alongside 111 tests on Python 3.11 and 3.12.">
+  <div class="head"><h2>Quality is a build gate, not a claim</h2><span class="no">04 · MEASURED</span></div>
+  <div class="q-grid">
+    <div>
+      <div class="bars">
+        <div class="bar"><span class="name">Top 1 accuracy<small>38 of 41</small></span><div class="track"><div class="fill d1" style="width:92.7%"></div><div class="floor" style="left:85%"></div></div><span class="val">92.7%</span></div>
+        <div class="bar"><span class="name">Top 3 accuracy<small>41 of 41</small></span><div class="track"><div class="fill d2" style="width:100%"></div><div class="floor" style="left:95%"></div></div><span class="val">100%</span></div>
+        <div class="bar"><span class="name">Answered<small>40 of 41</small></span><div class="track"><div class="fill d3" style="width:97.6%"></div><div class="floor" style="left:90%"></div></div><span class="val">97.6%</span></div>
+        <div class="bar"><span class="name">Off topic rejected<small>12 of 12</small></span><div class="track"><div class="fill d4" style="width:100%"></div><div class="floor" style="left:99.6%"></div></div><span class="val">100%</span></div>
+        <div class="bar"><span class="name">Competitor scoped<small>5 of 5</small></span><div class="track"><div class="fill d5" style="width:100%"></div><div class="floor" style="left:99.6%"></div></div><span class="val">100%</span></div>
+      </div>
+      <div class="legend"><span><i></i>measured</span><span><i class="g"></i>floor that fails the build</span></div>
+    </div>
+    <div class="facts">
+      <div class="fact rise d1"><b>41</b><span>hand labelled paraphrases, none copied from the corpus</span></div>
+      <div class="fact rise d2"><b>12</b><span>off topic questions that must be rejected</span></div>
+      <div class="fact rise d3"><b>5</b><span>questions about other fund houses that must be scoped out</span></div>
+      <div class="fact rise d4"><b>111</b><span>pytest tests, run by CI on Python 3.11 and 3.12</span></div>
+      <div class="gate rise d5">$ python scripts/evaluate.py<br><span>exits non zero if any floor breaks</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-panel="05_coverage" data-alt="What it knows. 47 documents: 8 each for the Large Cap, Flexi Cap and Midcap funds, 9 for the ELSS Tax Saver Fund, and 14 general explainers. All four schemes sit at Very High on the SEBI riskometer, whose six levels run from Low to Very High. Large Cap Fund: benchmark NIFTY 100 TRI, SIP from Rs. 99, exit load 1% within 365 days. Flexi Cap Fund: benchmark Nifty 500 TRI, SIP from Rs. 99, exit load 1% within 365 days. ELSS Tax Saver Fund: benchmark NIFTY 500 TRI (tier 1) and Nifty 200 TRI (tier 2), from Rs. 99, 3 year lock in. Midcap Fund: benchmark NIFTY Midcap 150 TRI, SIP from Rs. 99, exit load per the scheme documents. General topics: SIP, NAV, ELSS, expense ratio, exit load, riskometer, SWP, STP, KYC, direct versus regular plans, equity taxation, statements, ELSS lock in, coverage. Figures are point in time, as of June 2025.">
+  <div class="head"><h2>Four schemes, read from the factsheet</h2><span class="no">05 · COVERAGE</span></div>
+  <div class="cov">
+    <div class="gauge">
+      <div class="label">SEBI riskometer · all four</div>
+      <svg viewBox="0 0 250 150" role="presentation">
+        <g id="segs"></g>
+        <g class="needle"><line x1="125" y1="125" x2="125" y2="45" stroke="currentColor" stroke-width="3" style="color: var(--ink)" transform="rotate(75 125 125)"/></g>
+        <circle cx="125" cy="125" r="7" style="fill: var(--ink)"/>
+        <text x="8" y="145">Low</text>
+        <text class="vh" x="180" y="145">Very High</text>
+      </svg>
+      <p>Six SEBI levels from Low to Very High. Every scheme FundBot covers is an equity fund labelled Very High.</p>
+    </div>
+    <div>
+      <div class="cards">
+        <div class="card rise d1"><h3>Large Cap Fund</h3><dl><dt>benchmark</dt><dd>NIFTY 100 TRI</dd><dt>SIP from</dt><dd>Rs. 99</dd><dt>exit load</dt><dd>1% within 365 days</dd><dt>risk</dt><dd class="r">Very High</dd></dl></div>
+        <div class="card rise d2"><h3>Flexi Cap Fund</h3><dl><dt>benchmark</dt><dd>Nifty 500 TRI</dd><dt>SIP from</dt><dd>Rs. 99</dd><dt>exit load</dt><dd>1% within 365 days</dd><dt>risk</dt><dd class="r">Very High</dd></dl></div>
+        <div class="card rise d3"><h3>ELSS Tax Saver Fund</h3><dl><dt>benchmark</dt><dd>NIFTY 500 TRI (tier 1), Nifty 200 TRI (tier 2)</dd><dt>from</dt><dd>Rs. 99</dd><dt>lock in</dt><dd>3 years per instalment</dd><dt>risk</dt><dd class="r">Very High</dd></dl></div>
+        <div class="card rise d4"><h3>Midcap Fund</h3><dl><dt>benchmark</dt><dd>NIFTY Midcap 150 TRI</dd><dt>SIP from</dt><dd>Rs. 99</dd><dt>exit load</dt><dd>per scheme documents</dd><dt>risk</dt><dd class="r">Very High</dd></dl></div>
+      </div>
+      <div class="general">
+        <span class="label">+14 explainers</span>
+        <span class="chip d1">SIP</span><span class="chip d1">NAV</span><span class="chip d2">ELSS</span><span class="chip d2">expense ratio</span><span class="chip d3">exit load</span><span class="chip d3">riskometer</span><span class="chip d4">SWP</span><span class="chip d4">STP</span><span class="chip d5">KYC</span><span class="chip d5">direct vs regular</span><span class="chip d6">equity tax</span><span class="chip d6">statements</span>
+      </div>
+      <p class="small">Docs per fund: Large Cap 8, Flexi Cap 8, ELSS 9, Midcap 8, general 14. Figures are point in time, as of June 2025.</p>
+    </div>
+  </div>
+</section>
+
+<section data-panel="06_stack" data-alt="Stack and limits. Runs entirely on free tooling. Hosting: Vercel, a static frontend plus Python serverless functions. Model: OpenRouter with a free DeepSeek model, optional. Retrieval: Python standard library, no vector database. Server: Flask, with one function per route (ask, health, search). Quality: pytest, the evaluate script and GitHub Actions CI. Other hosts: a Dockerfile for Fly.io, Render, Hugging Face Spaces or a VPS. Limits: figures are point in time as of June 2025 and expense ratios change monthly; only four schemes are covered; a paraphrase sharing no vocabulary with the corpus will miss; there is no conversation memory. Disclaimer: informational only, not investment advice and not a substitute for a SEBI registered investment adviser. Mutual fund investments are subject to market risks; read all scheme related documents carefully.">
+  <div class="head"><h2>Built free, with its limits written down</h2><span class="no">06 · STACK AND LIMITS</span></div>
+  <div class="stack">
+    <div>
+      <div class="label">Free tooling end to end</div>
+      <ul>
+        <li class="rise d1"><b>Vercel</b><span>Static frontend in public/ plus Python serverless functions in api/</span></li>
+        <li class="rise d2"><b>OpenRouter</b><span>Free DeepSeek model for rephrasing. Optional.</span></li>
+        <li class="rise d3"><b>Python stdlib</b><span>Tokenizer, synonyms, BM25F and TF IDF. No vector database.</span></li>
+        <li class="rise d4"><b>Flask</b><span>One app behind /api/ask, /api/health and a debug /api/search</span></li>
+        <li class="rise d5"><b>CI</b><span>pytest plus the retrieval quality gate on every push</span></li>
+        <li class="rise d6"><b>Docker</b><span>For Fly.io, Render, Hugging Face Spaces or a VPS</span></li>
+      </ul>
+    </div>
+    <div class="lim">
+      <div class="label">Known limits</div>
+      <ul>
+        <li class="rise d1"><b>point in time</b><span>Sources as of June 2025, no live data. Expense ratios change monthly, so some answers link the TER page instead.</span></li>
+        <li class="rise d2"><b>four schemes</b><span>Other Mirae funds get "I don't know". Other fund houses are refused.</span></li>
+        <li class="rise d3"><b>lexical ceiling</b><span>A paraphrase with no shared vocabulary will miss. The fix is more phrasings in questions.</span></li>
+        <li class="rise d4"><b>no memory</b><span>Each question stands alone, so "and for the midcap?" will not resolve.</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="disc rise d5"><b>Not advice</b><span>Informational only. Not investment advice, not a recommendation, not a substitute for a SEBI registered investment adviser. Mutual fund investments are subject to market risks; read all scheme related documents carefully.</span></div>
+</section>
+
+</main>
+
+<script>
+// number line ticks for panel 03 (0 to 0.30 maps to x 20..420)
+(function () {
+  var g = document.getElementById("ticks"), ns = "http://www.w3.org/2000/svg";
+  for (var v = 0; v <= 0.3001; v += 0.05) {
+    var x = 20 + v / 0.3 * 400;
+    var l = document.createElementNS(ns, "line");
+    l.setAttribute("class", "tick"); l.setAttribute("x1", x); l.setAttribute("x2", x); l.setAttribute("y1", 78); l.setAttribute("y2", 90);
+    g.appendChild(l);
+    var t = document.createElementNS(ns, "text");
+    t.setAttribute("x", x); t.setAttribute("y", 104); t.setAttribute("text-anchor", "middle"); t.textContent = v.toFixed(2);
+    if (Math.abs(v - 0.05) > 0.001) g.appendChild(t);
+  }
+  // riskometer: six arc segments, Low to Very High
+  var s = document.getElementById("segs"), cx = 125, cy = 125, R = 105, r = 70;
+  var cols = ["#3f9a5b", "#86b04a", "#d8b73a", "#e39433", "#d8642c", "var(--risk)"];
+  for (var i = 0; i < 6; i++) {
+    var a0 = Math.PI + i * Math.PI / 6 + 0.012, a1 = Math.PI + (i + 1) * Math.PI / 6 - 0.012;
+    var p = function (a, rad) { return (cx + rad * Math.cos(a)).toFixed(2) + " " + (cy + rad * Math.sin(a)).toFixed(2); };
+    var path = document.createElementNS(ns, "path");
+    path.setAttribute("d", "M " + p(a0, R) + " A " + R + " " + R + " 0 0 1 " + p(a1, R) + " L " + p(a1, r) + " A " + r + " " + r + " 0 0 0 " + p(a0, r) + " Z");
+    path.setAttribute("style", "fill:" + cols[i] + ";opacity:" + (i === 5 ? 1 : 0.45));
+    s.appendChild(path);
+  }
+})();
+</script>
